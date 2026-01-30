@@ -52,7 +52,9 @@ pai-collab/
 
 ## Origin
 
-This blackboard concept emerged from a conversation between Andreas (@mellanon) and Jens-Christian Fischer (@jcfischer) about Daniel Miessler's GitHub-based operating model for coordinating humans and AI workers. Jens recognized the formal pattern — the blackboard architecture. That connection, sparked by community conversation, is itself an example of the pattern in action.
+Several threads converged into this idea. On the PAI community Discord, members had been discussing daemon infrastructure — Swift (@0xsalt) building a daemon registry for agent discovery, Chris Cantey proposing a community directory, and the broader question of how PAI instances could find and interact with each other. Separately, [Moltbook](https://gagadget.com/en/693922-the-day-has-come-ai-agents-have-their-own-social-network-moltbook/) (37,000+ AI agents) proved that autonomous agent interaction works at scale, though for social rather than productive purposes. Then Daniel Miessler shared his GitHub-based operating model on X — a working implementation of humans and AI workers coordinating through a shared repo. Andreas (@mellanon) and Jens-Christian Fischer (@jcfischer) discussed Daniel's post, and Jens recognized the formal pattern: the blackboard architecture.
+
+That convergence — daemon discovery + bot network proof-of-concept + Daniel's practical implementation + Jens' architectural pattern recognition, all emerging from community conversations — is itself an example of the blackboard in action.
 
 ## References
 
