@@ -1,0 +1,9 @@
+name: SpecFlow Lifecycle Extension
+type: bundle
+upstream: jcfischer/specflow-bundle
+fork: mellanon/specflow-bundle
+paths:
+  - playbooks/ContribPrep/
+  - playbooks/Review/
+  - playbooks/Release/
+  - templates/OPEN-SPEC.md

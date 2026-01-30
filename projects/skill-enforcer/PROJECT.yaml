@@ -1,0 +1,5 @@
+name: PAI Skill Enforcer
+type: tool
+upstream: jcfischer/pai-skill-enforcer
+paths:
+  - hooks/SkillInvocationEnforcement.hook.ts
