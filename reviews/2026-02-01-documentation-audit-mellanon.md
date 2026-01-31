@@ -37,10 +37,10 @@
 
 | Severity | Count | Resolved | Deferred |
 |----------|-------|----------|----------|
-| Major | 6 | 5 | 1 |
-| Minor | 18 | 8 | 10 |
+| Major | 6 | 6 | 0 |
+| Minor | 18 | 11 | 7 |
 | Trust audit gap | 1 | 0 | 1 |
-| **Total** | **25** | **13** | **12** |
+| **Total** | **25** | **17** | **8** |
 
 ---
 
@@ -64,7 +64,8 @@
 **Severity:** Major (downgraded to low priority)
 **Files:** projects/skill-enforcer/PROJECT.yaml, projects/specflow-lifecycle/PROJECT.yaml
 **Issue:** Both are upstream contributions but missing optional `fork`, `source_branch`, `contrib_branch` fields. CONTRIBUTING.md schema examples include these for upstream contributions.
-**Resolution:** Deferred. These are optional fields per schema. The projects work without them. Would be nice-to-have for completeness but not blocking.
+**Resolution:** ✅ Fixed. Added `fork`, `source_branch`, `contrib_branch` to both PROJECT.yaml files.
+**Commit:** `6c34e2e`
 
 ### #21 — No STATUS.md alignment validation in CI
 **Severity:** Major
@@ -96,7 +97,8 @@
 ### #7 — SOP numbering scheme unclear
 **File:** sops/README.md
 **Issue:** Sequential phases numbered 1-6, parallel phases use ∞. No legend explaining the convention.
-**Resolution:** Noted. The convention is intuitive from context. Low priority.
+**Resolution:** ✅ Fixed. Added numbering legend: 1–6 sequential, 0 prerequisite, ∞ parallel.
+**Commit:** `6c34e2e`
 
 ### #8 — Harden phase has no SOP
 **File:** CONTRIBUTING.md
@@ -176,7 +178,8 @@
 ### #25 — Council debate roles not operationalized
 **File:** sops/inbound-contribution-protocol.md
 **Issue:** References Council debate pattern (Architect, Engineer, Security, Researcher) but doesn't explain how to assign these roles or who fills them.
-**Resolution:** Noted. Council debate is a PAI-level pattern, not specific to pai-collab. Could cross-reference the Council skill.
+**Resolution:** ✅ Fixed. Clarified as PAI Council skill agent roles (not human assignments) with link to the Council skill. Any agent with the skill can invoke a debate.
+**Commit:** `6c34e2e`
 
 ---
 
