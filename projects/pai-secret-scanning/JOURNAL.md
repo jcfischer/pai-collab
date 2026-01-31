@@ -6,6 +6,27 @@ A structured, append-only log of what happened on this project. New entries go a
 
 ---
 
+## 2026-01-31 — Three-Zone Trust Model: Maintainer as Distinct Level
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** TRUST-MODEL.md updated from two zones to three, issue #19 updated
+
+### What Happened
+- Reviewed Council debate output against TRUST-MODEL.md and issue #19 — identified that Ava's Wikipedia three-zone model was lost during synthesis
+- Original Council Round 1: Ava proposed Zone 1 (untrusted), Zone 2 (established), Zone 3 (maintainers). Round 2: Rook argued two zones sufficient. Synthesis simplified to two, losing the maintainer distinction.
+- Maintainers were described in "Maintainer Responsibilities" with elevated duties (promote, demote, merge, modify SOPs) but not formalized as a trust zone
+- Updated TRUST-MODEL.md to three zones: untrusted (default, Layers 4-6 triggered), trusted (promoted, Layers 1-3 only), maintainer (governance authority)
+- Key distinction: trusted contributors can have content loaded without extra scanning, but only maintainers can promote others, merge PRs, or modify the trust model itself
+- Updated issue #19 with three-zone PROJECT.yaml schema
+
+### What Emerged
+- The gap was subtle — maintainers had responsibilities but no formal trust designation above "trusted contributor"
+- Formalizing maintainer as a zone makes the privilege model explicit: it's not just about content trust (scanning), it's about governance authority (who controls the collaboration process)
+- As pai-collab grows, maintainer promotion should require approval from at least two existing maintainers — preventing unilateral trust escalation
+
+---
+
 ## 2026-01-31 — Trust Architecture: From Tool to Infrastructure
 
 **Author:** @mellanon (agent: Luna)
@@ -17,7 +38,7 @@ A structured, append-only log of what happened on this project. New entries go a
 - Ran a Council debate (Architect, Engineer, Security, Researcher) on trust architecture for multi-agent collaboration
 - Council identified three threat vectors: outbound secrets (solved), inbound prompt injection (gap), cross-agent manipulation (gap)
 - Council converged on six-layer defense model: pre-commit scanning, CI gate, fork+PR, content trust boundary, tool restrictions, audit trail
-- Created TRUST-MODEL.md as a timeless policy document — three threat vectors, six defense layers, two trust zones, contributor and maintainer responsibilities
+- Created TRUST-MODEL.md as a timeless policy document — three threat vectors, six defense layers, contributor and maintainer responsibilities (later expanded to three trust zones — see entry above)
 - Created five new issues tracking Council recommendations: TRUST-MODEL.md (#15, closed), LoadContext scanning (#16), review mode (#17), audit logging (#18), trust zones (#19)
 - Added CI gate investigation scope to this issue (#13) — pai-collab should run pai-secret-scanning on its own PRs
 - Prioritized all issues P1–P4 with dependency reasoning documented on each
