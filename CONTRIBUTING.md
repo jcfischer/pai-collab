@@ -80,7 +80,7 @@ Every project directory must include a `PROJECT.yaml`. This is the machine-reada
 | `maintainer` | string | GitHub handle of the project maintainer |
 | `status` | string | One of: `proposed`, `building`, `hardening`, `contrib-prep`, `review`, `shipped`, `evolving`, `archived` |
 | `created` | date | Date the project was registered (YYYY-MM-DD). Used for staleness tracking and archival decisions |
-| `contributors` | map | Project-level trust zones (see [TRUST-MODEL.md](TRUST-MODEL.md) → Two-Level Scoping) |
+| `contributors` | map | Project-level trust zones (see [TRUST-MODEL.md](TRUST-MODEL.md) → Two-Level Scoping). Each contributor has only `zone` and `since` — no other fields. What they contributed is tracked in JOURNAL.md, not here. |
 
 ### Optional Fields
 
