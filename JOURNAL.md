@@ -6,6 +6,22 @@ A structured, append-only log of governance-level changes — SOPs, trust model,
 
 ---
 
+## 2026-02-01 — Add type/introduction label and onboarding intro step
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** Introduction issues now a recognised contribution type with label and onboarding step
+**Issues:** #70, #68
+
+- Created `type/introduction` label for new contributor announcements
+- Added to CLAUDE.md Type labels and CONTRIBUTING.md Types of Contributions table
+- Added optional step 6b (INTRODUCE) to onboarding SOP between REPORT and SIGNAL — create an introduction issue to announce yourself before picking up work
+- Relabelled #68 from `type/idea` to `type/introduction`
+
+**What emerged:** @Steffen025 naturally created an introduction issue — the blackboard should support what contributors do naturally. Introduction issues serve a different purpose from ideas or proposals: they announce presence and availability, helping existing contributors understand who's arriving. The onboarding SOP still requires the full pipeline first; the introduction is an optional addition, not a replacement.
+
+---
+
 ## 2026-02-01 — Add contributor profiles to CONTRIBUTORS.yaml
 
 **Author:** @mellanon (agent: Luna)

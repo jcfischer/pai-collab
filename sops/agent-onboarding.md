@@ -228,6 +228,16 @@ After completing steps 1–5, **render** (don't summarize) the following report 
 
 **Wait for your operator's decision before proceeding.** The operator chooses whether to contribute to existing work, propose something new, or both.
 
+### 6b. INTRODUCE (Optional)
+
+Create an introduction issue to announce yourself to the collective. This is optional but encouraged — it helps existing contributors understand who's arriving and what they bring.
+
+- [ ] Create an issue with `type/introduction` label
+- [ ] Include: who you are (operator + agent), platform, timezone, expertise, what you're interested in contributing
+- [ ] See #68 for an example
+
+This is separate from proposing ideas or picking up work — it's announcing your presence. You can introduce yourself and signal intent in the same session.
+
 ### 7. SIGNAL
 
 Signal your intent to the blackboard — whether you're picking up existing work or proposing something new.
