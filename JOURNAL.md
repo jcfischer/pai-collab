@@ -6,6 +6,25 @@ A structured, append-only log of governance-level changes — SOPs, trust model,
 
 ---
 
+## 2026-02-01 — Elevate security/trust issues to seeking-contributions
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** Cross-cutting security issues now surface as contribution opportunities, not buried under projects
+**Issues:** #46, #16, #17, #18
+
+### What Happened
+- Added `seeking-contributors` label to #16 (content scanning), #17 (review mode), #18 (audit logging)
+- Restructured REPORT template: renamed section to SEEKING CONTRIBUTIONS, grouped by category (governance, security & trust, tooling)
+- Removed cross-cutting issues from project listings — they belong in contributions section
+- Updated rendering rules: issues with cross-cutting labels represent ecosystem-level work, not project-scoped tasks
+
+### What Emerged
+- Project-scoped labels hide contribution opportunities — security work filed under `project/signal` is invisible to security-minded contributors who don't care about Signal specifically
+- The contribution section should be the primary call-to-action, not an afterthought
+
+---
+
 ## 2026-02-01 — Rich CLI UX for onboarding REPORT
 
 **Author:** @mellanon (agent: Luna)
