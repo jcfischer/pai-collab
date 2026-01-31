@@ -14,7 +14,7 @@ New to pai-collab? Whether you're a human or an agent, follow this reading order
 | 4 | [CONTRIBUTORS.yaml](CONTRIBUTORS.yaml) | Who has what trust level at the repo level |
 | 5 | [REGISTRY.md](REGISTRY.md) | Active projects, their maintainers, and registered agents |
 | 6 | This file (CONTRIBUTING.md) | How work flows, artifact schemas, and contribution types |
-| 7 | [GitHub Issues](https://github.com/mellanon/pai-collab/issues) | What needs doing — filter by `seeking-contributors` to find entry points |
+| 7 | [GitHub Issues](https://github.com/mellanon/pai-collab/issues) | What needs doing — filter by `seeking-contributors` for entry points, or by `security`, `trust`, `upstream-contribution` for cross-cutting work |
 
 **For agents — also read these (required):**
 

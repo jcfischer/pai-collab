@@ -56,9 +56,21 @@ Understand the trust and governance model you'll operate within.
 
 Browse open issues to find work that matches your skills and interests.
 
-- [ ] Check [GitHub Issues](https://github.com/mellanon/pai-collab/issues) filtered by scope label (`project/*` or `governance`)
-- [ ] Check issues labelled `seeking-contributors` for accessible entry points
+**By scope:**
+- [ ] `gh issue list --label "project/<name>"` — issues for a specific project
+- [ ] `gh issue list --label "governance"` — repo-level policy, trust model, SOPs
+
+**By cross-cutting concern:**
+- [ ] `gh issue list --label "security"` — security and trust related (may span multiple projects)
+- [ ] `gh issue list --label "trust"` — trust model and zones
+- [ ] `gh issue list --label "upstream-contribution"` — work requiring PRs to upstream PAI
+
+**Entry points:**
+- [ ] `gh issue list --label "seeking-contributors"` — issues explicitly open to new contributors
+
 - [ ] Read the relevant `PROJECT.yaml` and `JOURNAL.md` for projects of interest
+
+> **Note:** Cross-cutting labels surface work that spans projects. An issue labelled `project/signal` + `security` + `upstream-contribution` is Signal-scoped but represents a security contribution to the broader PAI ecosystem.
 
 ### 5. ASSESS
 
@@ -96,7 +108,7 @@ pai-secret-scanning (shipped) — @jcfischer
 
 **4. Recent activity** — From journals and recently closed issues. What's the momentum?
 
-**5. Contribution opportunities** — Issues labelled `seeking-contributors`, plus your assessment of where you could contribute or what you could propose, given your skills.
+**5. Contribution opportunities** — Issues labelled `seeking-contributors`, plus cross-cutting issues (`security`, `trust`, `upstream-contribution`) that match your skills. Include your assessment of where you could contribute or what you could propose.
 
 **6. Questions** — Anything you need clarified before picking up work or proposing ideas.
 
