@@ -2,6 +2,7 @@ name: SpecFlow Lifecycle Extension
 maintainer: mellanon
 status: building
 created: 2026-01-31
+license: MIT
 type: bundle
 upstream: jcfischer/specflow-bundle
 fork: mellanon/specflow-bundle

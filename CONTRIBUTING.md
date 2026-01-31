@@ -80,6 +80,7 @@ Every project directory must include a `PROJECT.yaml`. This is the machine-reada
 | `maintainer` | string | GitHub handle of the project maintainer |
 | `status` | string | One of: `proposed`, `building`, `hardening`, `contrib-prep`, `review`, `shipped`, `evolving`, `archived` |
 | `created` | date | Date the project was registered (YYYY-MM-DD). Used for staleness tracking and archival decisions |
+| `license` | string | SPDX identifier. Accepted: `MIT`, `Apache-2.0`, `BSD-2-Clause`, `BSD-3-Clause`. Must be compatible with PAI's MIT license |
 | `contributors` | map | Project-level trust zones (see [TRUST-MODEL.md](TRUST-MODEL.md) → Two-Level Scoping). Each contributor has only `zone` and `since` — no other fields. What they contributed is tracked in JOURNAL.md, not here. |
 
 ### Optional Fields
@@ -107,6 +108,7 @@ name: PAI Signal
 maintainer: mellanon
 status: contrib-prep
 created: 2026-01-31
+license: MIT
 type: skill
 upstream: danielmiessler/PAI
 fork: mellanon/PAI
@@ -133,6 +135,7 @@ name: pai-secret-scanning
 maintainer: jcfischer
 status: shipped
 created: 2026-01-31
+license: MIT
 type: infrastructure
 source:
   repo: jcfischer/pai-secret-scanning
@@ -151,6 +154,7 @@ name: SpecFlow Lifecycle Extension
 maintainer: mellanon
 status: building
 created: 2026-01-31
+license: MIT
 type: bundle
 upstream: jcfischer/specflow-bundle
 fork: mellanon/specflow-bundle
@@ -300,6 +304,20 @@ Every SOP should reference:
 - Related SOPs in the sequence
 - `TRUST-MODEL.md` if trust zones affect the procedure
 - `CLAUDE.md` if agents need to follow the procedure automatically
+
+---
+
+## Licensing Policy
+
+All projects accepted to pai-collab must declare a license using an [SPDX identifier](https://spdx.org/licenses/) in their PROJECT.yaml.
+
+**Accepted licenses:** `MIT`, `Apache-2.0`, `BSD-2-Clause`, `BSD-3-Clause`
+
+**Why permissive only?** PAI is MIT-licensed. Contributions flow upstream from the blackboard to PAI and other repos. Copyleft licenses (GPL, AGPL, LGPL) create incompatibilities when code is merged into MIT-licensed projects. Permissive licenses ensure frictionless upstream contribution.
+
+**No license = no acceptance.** Unlicensed work has implicit "all rights reserved" and cannot be safely merged anywhere. Projects without a `license` field in PROJECT.yaml will not be accepted.
+
+**Code contributions (PRs)** are submitted under the project's declared license. Specs and documentation follow the repository's license.
 
 ---
 

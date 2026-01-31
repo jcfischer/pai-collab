@@ -37,7 +37,8 @@ All artifacts in this repository follow canonical schemas defined in `CONTRIBUTI
 | SOPs | CONTRIBUTING.md → "SOP Format Guide" | Creating or modifying an SOP |
 
 **Key rules:**
-- `PROJECT.yaml` status must use canonical lifecycle values: `proposed`, `building`, `hardening`, `contrib-prep`, `review`, `shipped`, `evolving`
+- `PROJECT.yaml` status must use canonical lifecycle values: `proposed`, `building`, `hardening`, `contrib-prep`, `review`, `shipped`, `evolving`, `archived`
+- `PROJECT.yaml` must include a `license` field with an accepted SPDX identifier: `MIT`, `Apache-2.0`, `BSD-2-Clause`, `BSD-3-Clause`. Reject PRs that omit this field or use copyleft licenses
 - `REGISTRY.md` status must match `PROJECT.yaml` status — REGISTRY.md is the index, PROJECT.yaml is the source of truth
 - `JOURNAL.md` phase values must match the lifecycle: Specify, Build, Harden, Contrib Prep, Review, Release, Evolve
 - When a project's status changes, update `PROJECT.yaml`, `REGISTRY.md`, AND `STATUS.md` in the same commit

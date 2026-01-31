@@ -2,6 +2,7 @@ name: PAI Skill Enforcer
 maintainer: jcfischer
 status: shipped
 created: 2026-01-31
+license: MIT
 type: tool
 upstream: jcfischer/pai-skill-enforcer
 paths:
