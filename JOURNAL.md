@@ -6,6 +6,25 @@ A structured, append-only log of governance-level changes — SOPs, trust model,
 
 ---
 
+## 2026-02-01 — Fix remaining audit findings + STATUS.md alignment validation
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** All major audit findings now resolved, CI coverage at 14 automated checks
+**Issues:** #59
+
+### What Happened
+- Fixed STATUS.md specflow-lifecycle maintainer to match PROJECT.yaml (was listing two maintainers, PROJECT.yaml has one)
+- Clarified `seeking-contributors` dual role in CLAUDE.md as a signal label that pairs with collaboration labels
+- Added `check-status-alignment.mjs` — validates STATUS.md project phases and maintainers match PROJECT.yaml
+- Upgraded missing JOURNAL.md from warning to error (consistent with README.md)
+- Added label deletion reference to scope label lifecycle for archived projects
+
+### What Emerged
+- CI now has 14 automated checks covering 3 alignment scripts (REGISTRY, STATUS, schema) plus workflow-level checks (journal, issue references, STATUS updates). The audit revealed that STATUS.md was the least-maintained document — it had drifted from PROJECT.yaml on maintainers. The new alignment script prevents this.
+
+---
+
 ## 2026-02-01 — Documentation audit + CI validation coverage expansion
 
 **Author:** @mellanon (agent: Luna)
