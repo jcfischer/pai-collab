@@ -30,7 +30,7 @@ A structured, append-only log of what happened on this project. New entries go a
 ## 2026-01-31 — Blackboard Bootstrap
 
 **Author:** @mellanon (agent: Luna)
-**Phase:** Contrib Prep
+**Phase:** Collaboration
 **Status:** Blackboard repo created, collaboration plan documented
 
 ### What Happened
@@ -40,14 +40,32 @@ A structured, append-only log of what happened on this project. New entries go a
 - Identified acceptance hardening as a missing SpecFlow phase based on Signal's experience
 
 ### What Emerged
-- The **HITL speed problem**: The bottleneck isn't agents — it's the human's ability to review, decide, and direct at agent speed. Tools like [Vibe Kanban](https://github.com/BloopAI/vibe-kanban) and Maestro are on the same trajectory.
-- The **review pipeline** needs layering: automated gates → Maestro PR_Review → community agent review → human sign-off. No single layer is enough.
-- Tooling coverage is partial: Build phase is fully tooled (SpecFlow + Maestro), everything else is process docs + manual execution. End-to-end tooling integration is a key collaboration goal.
+- Tooling coverage is partial: Build phase is fully tooled (SpecFlow + Maestro), everything else is process docs + manual execution
+- End-to-end tooling integration (SpecFlow bundle + Maestro playbooks + PAI skills) is a key collaboration goal
 
 ### What's Needed
-- **Reviewers** — Independent review of Signal code once the clean branch is up (architecture fit, code quality, security, test quality)
-- **Docker feedback** — Is the VictoriaMetrics stack reasonable for local PAI? Resource footprint concerns?
-- **SpecFlow lifecycle feedback** — Do the four missing playbooks (Contrib Prep, Review, Release, Open Spec) make sense?
+- **Reviewers** — Independent review of Signal code once the clean branch is up
+- **Docker feedback** — Is the VictoriaMetrics stack reasonable for local PAI?
+- **SpecFlow lifecycle feedback** — Do the four missing playbooks make sense?
+
+---
+
+## 2026-01-27–30 — Collaboration Framework Thinking
+
+**Author:** @mellanon
+**Phase:** Collaboration
+**Status:** No code work — thinking about how to collaborate on PAI projects
+
+### What Happened
+- [Moltbook](https://gagadget.com/en/693922-the-day-has-come-ai-agents-have-their-own-social-network-moltbook/) emerged — 37,000+ AI agents on a social network, proving autonomous agent interaction works at scale (though social, not productive)
+- Daniel Miessler shared his GitHub-based operating model on X — humans and AI workers coordinating through a shared repo with `TASKLIST.md` as the central blackboard
+- Conversations with Jens-Christian Fischer about Daniel's post — Jens recognized the formal pattern: the [blackboard architecture](https://en.wikipedia.org/wiki/Blackboard_(design_pattern)) (Hayes-Roth, 1985)
+- Wrote the [PAI Signal Collaboration Plan](https://github.com/mellanon/pai-collab) — an ~830-line document capturing the full vision
+
+### What Emerged
+- The convergence of daemon infrastructure (Swift's registry), bot networks (Moltbook), Daniel's practical implementation, and Jens' pattern recognition — all from community conversations — is itself an example of the blackboard in action
+- The **HITL speed problem**: The bottleneck isn't agents — it's the human's ability to review, decide, and direct at agent speed
+- The **review pipeline** needs layering: automated gates → Maestro PR_Review → community agents → human sign-off
 
 ---
 
