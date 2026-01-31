@@ -6,6 +6,24 @@ A structured, append-only log of governance-level changes — SOPs, trust model,
 
 ---
 
+## 2026-02-01 — Add contributor profiles to CONTRIBUTORS.yaml
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** CONTRIBUTORS.yaml extended with optional profile fields for discovery and async coordination
+**Issues:** #69, #68
+
+- Added optional fields to CONTRIBUTORS.yaml: `timezone`, `tags` (expertise/role), `availability`
+- Backfilled both existing contributors: @mellanon (NZDT, observability/infrastructure/governance) and @jcfischer (CET, cybersecurity/specflow/tooling)
+- Updated CI validation: new fields accepted without warnings
+- Updated TRUST-MODEL.md: noted profile fields don't affect trust decisions
+- Updated CLAUDE.md: artifact schema trigger includes profile updates
+- Updated onboarding SOP: ORIENT step mentions profile data in CONTRIBUTORS.yaml
+
+**What emerged:** @Steffen025's introduction (#68) included availability/timezone data that the blackboard had no place for. Contributor profiles bridge the gap between trust governance and capability discovery — tags enable matching `seeking-contributors` issues to people with relevant expertise, timezone enables async coordination across CET/NZDT.
+
+---
+
 ## 2026-02-01 — Consolidate expertise-needed into seeking-contributors
 
 **Author:** @mellanon (agent: Luna)

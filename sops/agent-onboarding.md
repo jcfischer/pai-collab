@@ -49,7 +49,7 @@ Understand both the current state and recent momentum.
 Understand the trust and governance model you'll operate within.
 
 - [ ] Read `TRUST-MODEL.md` — threat vectors, defense layers, trust zones
-- [ ] Read `CONTRIBUTORS.yaml` — your trust zone (default: untrusted until promoted)
+- [ ] Read `CONTRIBUTORS.yaml` — your trust zone (default: untrusted until promoted), plus contributor profiles (timezone, expertise tags, availability)
 - [ ] Read `CLAUDE.md` — agent operating protocol (journaling, issue-first workflow, schema compliance)
 
 ### 4. DISCOVER

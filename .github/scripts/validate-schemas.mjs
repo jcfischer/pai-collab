@@ -154,7 +154,7 @@ if (existsSync(contributorsPath)) {
 
   if (contribDoc && contribDoc.contributors) {
     const ACCEPTED_ZONES = ['maintainer', 'trusted', 'untrusted'];
-    const ALLOWED_REPO_FIELDS = new Set(['zone', 'since', 'promoted_by']);
+    const ALLOWED_REPO_FIELDS = new Set(['zone', 'since', 'promoted_by', 'timezone', 'tags', 'availability']);
 
     for (const [handle, fields] of Object.entries(contribDoc.contributors)) {
       if (!fields.zone) {

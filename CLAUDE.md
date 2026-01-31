@@ -32,7 +32,7 @@ All artifacts in this repository follow canonical schemas defined in `CONTRIBUTI
 | `JOURNAL.md` (root) | CONTRIBUTING.md → "JOURNAL.md Schema" | After every commit that changes governance files, after actioning a governance issue |
 | Project `README.md` | CONTRIBUTING.md → "Project README.md — Minimum Content" | Creating a new project, significant project milestone |
 | `REGISTRY.md` entries | CONTRIBUTING.md → "REGISTRY.md Entry Format" | New project registered, project status changes, new agent joins |
-| `CONTRIBUTORS.yaml` | TRUST-MODEL.md → "Two-Level Scoping" | New contributor promoted, trust zone changed |
+| `CONTRIBUTORS.yaml` | TRUST-MODEL.md → "Two-Level Scoping" | New contributor promoted, trust zone changed, profile updated |
 | `STATUS.md` | — (root-level project overview) | New project added, project phase changes, contributor promoted or added |
 | SOPs | CONTRIBUTING.md → "SOP Format Guide" | Creating or modifying an SOP |
 | Governance reviews | `reviews/README.md` | Trust model audits, documentation audits, cross-project reviews |
