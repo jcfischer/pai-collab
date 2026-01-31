@@ -101,7 +101,7 @@ The pipeline gets you to **working, tested code**. But between "working" and "sh
 
 | Phase | What Exists | What's Missing | Question It Answers |
 |-------|------------|----------------|-------------------|
-| **Contrib Prep** | _SPECFIRST gates 1-6, SOP | SpecFlow CLI command, Maestro playbook | "Is this safe to share?" |
+| **Contrib Prep** | _SPECFIRST gates 1-6, SOP, [pai-secret-scanning](https://github.com/jcfischer/pai-secret-scanning) (automated gate) | SpecFlow CLI command, Maestro playbook | "Is this safe to share?" |
 | **Review** | PR_Review playbook, SOP | Lifecycle integration, four-layer strategy | "Is this good code?" |
 | **Release** | _SPECFIRST full workflow, SOP | SpecFlow CLI command, Maestro playbook | "Is this ready to merge?" |
 | **Evolve** | Open Spec template in SpecFlow bundle | SpecFlow CLI command, Maestro playbook | "How does this evolve?" |

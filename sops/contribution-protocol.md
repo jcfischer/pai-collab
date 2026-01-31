@@ -45,10 +45,15 @@ Create `CONTRIBUTION-REGISTRY.md` listing every file to include and exclude. **T
 
 ### 2. Sanitize
 
-Scan for PII, secrets, personal paths. Both automated and manual:
+**Prerequisite:** Install [pai-secret-scanning](https://github.com/jcfischer/pai-secret-scanning) before any contribution work. It provides:
+- **Pre-commit hook** — `gitleaks protect --staged` catches secrets at commit time
+- **8 custom PAI rules** — Anthropic, OpenAI, ElevenLabs, Telegram keys, personal paths, `.env` patterns
+- **CI gate** — GitHub Actions check on the contrib branch
 
-- [ ] `grep -r "API_KEY\|SECRET\|TOKEN\|PASSWORD"` across inventory files
-- [ ] `grep -r "/Users/" ` for personal paths
+With pai-secret-scanning installed, the pre-commit hook is your first automated gate. Then verify manually:
+
+- [ ] pai-secret-scanning pre-commit hook is active (`gitleaks protect --staged`)
+- [ ] `grep -r "/Users/" ` for personal paths not covered by gitleaks rules
 - [ ] Check for hardcoded Telegram IDs, email addresses, phone numbers
 - [ ] Check test fixtures for real captured data
 - [ ] Verify `.env` and credentials files are excluded
