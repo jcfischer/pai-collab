@@ -113,9 +113,9 @@ The file inventory makes this explicit. Without it, a naive `git push` would pub
 
 | Project | Files | Outcome |
 |---------|-------|---------|
-| Context Skill | 50 | Merged to upstream PAI |
-| Jira Skill | 18 | Merged to upstream PAI |
-| pai-knowledge Bundle | 63 | Merged to upstream PAI |
+| Context Skill | 50 | PR created, rejected by upstream |
+| Jira Skill | 18 | PR created, rejected by upstream |
+| pai-knowledge Bundle | 63 | PR created, rejected by upstream |
 | Signal (upcoming) | ~102 | In Contrib Prep |
 
 ## References

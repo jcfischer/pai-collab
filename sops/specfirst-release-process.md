@@ -108,9 +108,9 @@ Before Gate 6 (Push to Fork), verify:
 
 | Project | Files | Outcome |
 |---------|-------|---------|
-| Context Skill | 50 files | Merged to upstream PAI |
-| Jira Skill | 18 files | Merged to upstream PAI |
-| pai-knowledge Bundle | 63 files | Merged to upstream PAI |
+| Context Skill | 50 files | PR created, rejected by upstream |
+| Jira Skill | 18 files | PR created, rejected by upstream |
+| pai-knowledge Bundle | 63 files | PR created, rejected by upstream |
 | Signal (upcoming) | ~102 files | In Contrib Prep |
 
 The process scales. Signal is larger but the workflow is the same: tag → contrib → sanitize → fork → PR.
