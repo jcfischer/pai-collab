@@ -4,7 +4,69 @@
 
 ---
 
-## The Current Pipeline
+## The Tooling Stack
+
+Five layers work together to enable autonomous spec-driven development. Each layer leans on the one below it:
+
+```
+┌─────────────────────────────────────────────────────────────────────────┐
+│  5. MAESTRO                                                             │
+│  Playbooks orchestrate multi-step workflows in Auto Run mode.           │
+│  Each playbook step is a markdown file with tasks, gates, and routing.  │
+│  State: .maestro/CURRENT_FEATURE.md, .maestro/outputs/                  │
+│  Reads SpecFlow state to know which feature is next, what phase it's in.│
+├─────────────────────────────────────────────────────────────────────────┤
+│  4. PAI (Skills + Hooks)                                                │
+│  Skills provide domain expertise (SKILL.md + workflows + tools).        │
+│  Hooks fire at lifecycle events (SessionStart, PreToolUse, etc.).       │
+│  _SPECFIRST skill wraps release process. Hooks enable observability.    │
+├─────────────────────────────────────────────────────────────────────────┤
+│  3. SPECFLOW BUNDLE (CLI + State)                                       │
+│  `specflow specify`, `specflow plan`, `specflow implement` CLI commands. │
+│  SQLite state tracking: .specflow/features.db, .specflow/evals.db       │
+│  Quality gates (≥80%), interview protocol, TDD enforcement.             │
+│  Specs stored in .specify/specs/ per feature.                           │
+├─────────────────────────────────────────────────────────────────────────┤
+│  2. CLAUDE CODE                                                         │
+│  The agentic coding environment. Executes tool calls, manages context,  │
+│  runs bash commands, reads/writes files. The execution engine.          │
+├─────────────────────────────────────────────────────────────────────────┤
+│  1. CLAUDE OPUS 4.5 (LLM)                                              │
+│  The model powering everything above. Reasoning, code generation,       │
+│  quality assessment, spec writing, review analysis.                     │
+└─────────────────────────────────────────────────────────────────────────┘
+```
+
+### How the layers interact during a build
+
+When Maestro runs the `SpecFlow_Development` playbook in Auto Run:
+
+1. **Maestro** reads `.maestro/CURRENT_FEATURE.md` to determine which feature is active
+2. **Maestro** routes to the correct playbook step (SELECT → SPECIFY → PLAN → TASKS → IMPLEMENT → VERIFY → COMPLETE)
+3. The playbook step invokes **SpecFlow CLI** commands (`specflow specify`, `specflow plan`, etc.)
+4. **SpecFlow** uses **Claude Code** to execute — writing specs, generating code, running tests
+5. **Claude Code** leans on **Claude Opus 4.5** for reasoning and generation
+6. **SpecFlow** records state in SQLite (`.specflow/features.db`) — feature status, phase, quality scores
+7. **Maestro** reads that state on the next loop to decide what to do next
+
+This is how Signal was built: 18 features, 708 tests, two parallel agents in separate git worktrees, running for ~24 hours. Maestro's Auto Run kept looping through features while SpecFlow tracked per-feature state.
+
+### What exists today vs what's needed
+
+| Lifecycle Phase | Tooling Stack Coverage | Status |
+|----------------|----------------------|--------|
+| **Specify + Build** | All 5 layers working together | ✅ Proven (Signal) |
+| **Harden** | Human-driven, no tooling | ✅ Works (manual) |
+| **Contrib Prep** | SOP exists, no playbook or CLI | 🏗️ Needs playbook |
+| **Review** | PR_Review playbook exists, needs extension | 🏗️ Needs lifecycle integration |
+| **Release** | SOP + _SPECFIRST skill exist, no playbook | 🏗️ Needs playbook |
+| **Evolve** | Open Spec template exists in SpecFlow bundle | 🏗️ Needs playbook |
+
+The goal: extend the same 5-layer stack to cover the full lifecycle, so an agent can pick up a project from the blackboard and execute SPECIFY through RELEASE with human approval at key gates.
+
+---
+
+## The Current Pipeline (Specify + Build)
 
 SpecFlow + [Maestro](https://runmaestro.ai/) provides a powerful spec-driven development pipeline that already works:
 
@@ -138,6 +200,8 @@ With all four playbooks, the full lifecycle becomes:
                     │     ↑ quality gates ↑ TDD enforcement            │
                     └────────────────────┬─────────────────────────────┘
                                          │
+                              HARDEN (human acceptance)
+                                         │
                     ┌────────────────────┼─────────────────────────────┐
                     │       LIFECYCLE EXTENSION (new)                   │
                     │                    │                              │
@@ -153,6 +217,21 @@ With all four playbooks, the full lifecycle becomes:
                     │  baseline + Change Proposals → next cycle         │
                     └──────────────────────────────────────────────────┘
 ```
+
+---
+
+## Upstream Dependencies (Maestro)
+
+Building lifecycle playbooks that work in Auto Run mode depends on upstream Maestro capabilities. We've filed experience reports from the Signal build to help align:
+
+| Issue | What It Enables | Why It Matters for Lifecycle |
+|-------|----------------|----------------------------|
+| [#231 — Exit Condition Detection](https://github.com/pedramamini/Maestro/issues/231) | Playbooks can signal completion instead of looping indefinitely | Contrib Prep and Release playbooks have a clear "done" state — they need to stop when the PR is created, not loop back to step 1 |
+| [#232 — HITL Gates for Auto-Run](https://github.com/pedramamini/Maestro/issues/232) | Human review points pause auto-run, notify, and resume after approval | Every lifecycle phase has approval gates. Without pause-notify-resume, auto-run skips past them or requires manual intervention |
+| [#233 — Surfacing Run Data to UI](https://github.com/pedramamini/Maestro/issues/233) | Feature phase, test results, and quality scores visible in Maestro UI during auto-run | Operators need visibility into which lifecycle phase is active, what the sanitization status is, whether review findings are blocking |
+| [#235 — Token Exhaustion UX](https://github.com/pedramamini/Maestro/issues/235) | Graceful pause with state save when approaching rate limits, instead of silent stop | Long-running lifecycle playbooks (Contrib Prep can take hours for large projects) need to survive token limits without losing progress |
+
+These issues emerged directly from the 24-hour parallel Signal build — two agents in separate git worktrees running the SpecFlow_Development playbook. The build succeeded, but the experience surfaced friction points that would be blockers for the longer lifecycle phases (Contrib Prep through Release), where human approval gates are mandatory and runs can span multiple sessions.
 
 ---
 
@@ -185,6 +264,13 @@ The playbooks validate against these PAI constitutional documents at every phase
 
 [PAI Signal](../signal/) (25,000 lines, 102 files, 708 tests) is the first project to need the full lifecycle. The experience of building Signal through SpecFlow and then hitting the "works but not merge-ready" gap is what identified these missing phases. See Signal's [JOURNAL.md](../signal/JOURNAL.md) for the full story.
 
+**Signal's state directories** show the tooling stack in action:
+- `.maestro/CURRENT_FEATURE.md` — Maestro tracked "ALL_FEATURES_COMPLETE" after 18 features
+- `.maestro/outputs/` — Completion logs, file inventory, loop progress, test results
+- `.specflow/features.db` — SQLite tracking all 18 features through SPECIFY → IMPLEMENT
+- `.specflow/evals.db` — Quality evaluation scores per feature per phase
+- `.specify/specs/` — 18 feature specifications generated by the interview protocol
+
 ## Source Code
 
 | What | Where |
@@ -192,6 +278,7 @@ The playbooks validate against these PAI constitutional documents at every phase
 | SpecFlow Bundle | [jcfischer/specflow-bundle](https://github.com/jcfischer/specflow-bundle) |
 | Maestro Playbooks | [mellanon/maestro-pai-playbooks](https://github.com/mellanon/maestro-pai-playbooks) |
 | SpecFirst Skill | [PAI _SPECFIRST skill](https://github.com/danielmiessler/PAI) (private, will be contributed) |
+| Maestro | [pedramamini/Maestro](https://github.com/pedramamini/Maestro) |
 
 ## Project Files
 
