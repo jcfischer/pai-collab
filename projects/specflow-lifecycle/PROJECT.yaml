@@ -15,3 +15,8 @@ contributors:
   mellanon:
     zone: maintainer
     since: 2026-01-31
+  jcfischer:
+    zone: trusted
+    since: 2026-01-31
+    contributions:
+      - "specflow contrib-prep CLI (5-gate workflow, 670 tests)"
