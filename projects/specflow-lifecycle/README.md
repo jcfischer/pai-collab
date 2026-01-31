@@ -83,7 +83,7 @@ SPECIFY → PLAN → TASKS → IMPLEMENT → (complete)
 - **Quality gates** — Cannot advance phases until score ≥80% (LLM-based rubric scoring)
 - **Interview-driven specs** — 8-phase structured requirements elicitation prevents shallow specs
 - **TDD enforcement** — RED → GREEN → BLUE for every task, not just "one test file"
-- **Constitutional compliance** — Every phase validates against [PAI principles](https://github.com/mellanon/maestro-pai-playbooks/blob/main/docs/PAI-PRINCIPLES.md) (CLI-first, deterministic, UNIX philosophy)
+- **Constitutional compliance** — Every phase validates against [PAI principles](https://github.com/mellanon/maestro-pai-playbooks/blob/master/docs/PAI-PRINCIPLES.md) (CLI-first, deterministic, UNIX philosophy)
 - **State persistence** — SQLite databases track feature status across loops and sessions
 
 **Playbook variants:**
@@ -99,12 +99,12 @@ SPECIFY → PLAN → TASKS → IMPLEMENT → (complete)
 
 The pipeline gets you to **working, tested code**. But between "working" and "shipped", four phases are missing:
 
-| Phase | SpecFlow Today | What's Missing | Question It Answers |
-|-------|---------------|----------------|-------------------|
-| **Contrib Prep** | — | Extract from private trunk, sanitize, stage | "Is this safe to share?" |
-| **Review** | PR_Review playbook exists | Independent review, structured findings, community agents | "Is this good code?" |
-| **Release** | — | PR packaging, changelog, migration guide, approval gates | "Is this ready to merge?" |
-| **Evolve** | — | Versioned spec evolution, change proposals | "How does this evolve?" |
+| Phase | What Exists | What's Missing | Question It Answers |
+|-------|------------|----------------|-------------------|
+| **Contrib Prep** | _SPECFIRST gates 1-6, SOP | SpecFlow CLI command, Maestro playbook | "Is this safe to share?" |
+| **Review** | PR_Review playbook, SOP | Lifecycle integration, four-layer strategy | "Is this good code?" |
+| **Release** | _SPECFIRST full workflow, SOP | SpecFlow CLI command, Maestro playbook | "Is this ready to merge?" |
+| **Evolve** | Open Spec template in SpecFlow bundle | SpecFlow CLI command, Maestro playbook | "How does this evolve?" |
 
 ### Why These Matter for PAI
 
@@ -115,6 +115,31 @@ PAI development is uniquely challenging because **your private instance is entan
 - Config files with personal preferences
 
 The contrib branch is a **sanitization gate** that forces explicit file selection. Without Contrib Prep, you're one `git push` away from leaking secrets.
+
+---
+
+## Existing Process Knowledge: _SPECFIRST Skill
+
+We're not starting from scratch. The [_SPECFIRST skill](https://github.com/danielmiessler/PAI) already encodes the full release lifecycle as PAI workflows — battle-tested across three real contributions:
+
+| Contribution | Scale | Outcome |
+|-------------|-------|---------|
+| Context Skill | 50 files | Process validated, PR submitted |
+| Jira Skill | 18 files | Process validated, PR submitted |
+| pai-knowledge | 63 files | Process validated, PR submitted |
+
+**Key artifacts in _SPECFIRST:**
+- **`workflows/Release.md`** — The full fork contribution workflow with 8 human approval gates, tag-before-contrib pattern, cherry-pick from tag, sanitization checklist (~574 lines of proven process)
+- **`templates/RELEASE-FRAMEWORK.md`** — Scope definition, sanitization rules, propagation process, CHANGELOG management, pre-release checklist, version lifecycle
+
+The goal of this project is to encode that process knowledge into the tooling stack — specifically:
+1. **SpecFlow CLI commands** (`specflow contrib-prep`, `specflow review`, `specflow release`, `specflow openspec`) — coordinating with @jcfischer on whether these belong in [jcfischer/specflow-bundle](https://github.com/jcfischer/specflow-bundle) or a separate extension
+2. **Maestro playbooks** wrapping those CLI commands with orchestration, human approval gates, and `.maestro/` state management
+3. **PAI skills** (where appropriate) making phases invocable from any session
+
+The pattern: _SPECFIRST provides the "what" (process knowledge). SpecFlow provides the "how" (CLI + state). Maestro provides the "when" (orchestration + gates). Signal validates everything as the first project through the full pipeline.
+
+**Tracked in:** Issues [#4](https://github.com/mellanon/pai-collab/issues) (align with Jens), [#5](https://github.com/mellanon/pai-collab/issues) (Contrib Prep), [#6](https://github.com/mellanon/pai-collab/issues) (Review), [#7](https://github.com/mellanon/pai-collab/issues) (Release), [#8](https://github.com/mellanon/pai-collab/issues) (Open Spec)
 
 ---
 
@@ -241,10 +266,10 @@ The playbooks validate against these PAI constitutional documents at every phase
 
 | Document | What It Enforces |
 |----------|-----------------|
-| [PAI-PRINCIPLES.md](https://github.com/mellanon/maestro-pai-playbooks/blob/main/docs/PAI-PRINCIPLES.md) | 16 founding design principles (CLI-first, deterministic, UNIX philosophy) |
-| [SKILL-BEST-PRACTICES.md](https://github.com/mellanon/maestro-pai-playbooks/blob/main/docs/SKILL-BEST-PRACTICES.md) | Skill structure guidelines (under 500 lines, USE WHEN triggers) |
-| [TDD-EVALS.md](https://github.com/mellanon/maestro-pai-playbooks/blob/main/docs/TDD-EVALS.md) | Test methodology (deterministic tests, pass@k metrics) |
-| [RELEASE-FRAMEWORK.md](https://github.com/mellanon/maestro-pai-playbooks/blob/main/docs/RELEASE-FRAMEWORK.md) | Release checklist (file inventory, sanitization, no secrets) |
+| [PAI-PRINCIPLES.md](https://github.com/mellanon/maestro-pai-playbooks/blob/master/docs/PAI-PRINCIPLES.md) | 16 founding design principles (CLI-first, deterministic, UNIX philosophy) |
+| [SKILL-BEST-PRACTICES.md](https://github.com/mellanon/maestro-pai-playbooks/blob/master/docs/SKILL-BEST-PRACTICES.md) | Skill structure guidelines (under 500 lines, USE WHEN triggers) |
+| [TDD-EVALS.md](https://github.com/mellanon/maestro-pai-playbooks/blob/master/docs/TDD-EVALS.md) | Test methodology (deterministic tests, pass@k metrics) |
+| [RELEASE-FRAMEWORK.md](https://github.com/mellanon/maestro-pai-playbooks/blob/master/docs/RELEASE-FRAMEWORK.md) | Release checklist (file inventory, sanitization, no secrets) |
 
 ---
 
