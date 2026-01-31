@@ -6,6 +6,26 @@ A structured, append-only log of governance-level changes — SOPs, trust model,
 
 ---
 
+## 2026-02-01 — Parallel collaboration patterns
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** Two new collaboration patterns proposed as seeking-contributors issues
+**Issues:** #51, #52
+
+### What Happened
+- Created #51 — parallel reviews pattern: multiple independent reviews on the same topic, maintainer synthesizes
+- Created #52 — competing proposals pattern: multiple approaches to the same problem, maintainer selects or merges
+- Created two new labels: `parallel-review` and `competing-proposals`
+- Updated CLAUDE.md label taxonomy with new Collaboration category
+- Updated onboarding SOP DISCOVER step and REPORT template to surface these
+
+### What Emerged
+- The blackboard pattern (Hayes-Roth) naturally supports parallel knowledge sources — we just hadn't formalized it. These patterns make it explicit that multiple contributors working the same topic isn't duplication, it's the design.
+- Both issues are tagged `seeking-contributors` — testing whether the blackboard can attract parallel collaboration on its own governance processes
+
+---
+
 ## 2026-02-01 — First external review + comment-first contribution flow
 
 **Author:** @mellanon (agent: Luna)
