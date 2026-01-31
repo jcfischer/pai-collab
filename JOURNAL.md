@@ -6,6 +6,24 @@ A structured, append-only log of governance-level changes — SOPs, trust model,
 
 ---
 
+## 2026-02-01 — Strict REPORT rendering rules
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** Added anti-patterns to prevent bold markdown and numbered paragraphs in REPORT output
+**Issues:** #49
+
+### What Happened
+- Fresh agent test showed `**bold**` rendering as literal asterisks in CLI and contribution opportunities formatted as numbered paragraphs instead of the category/issue template
+- Added "Common mistakes" section with four explicit anti-patterns
+- Changed rendering rules header from "Rendering rules" to "Rendering rules — STRICT"
+- Added rule: the report IS the response — don't wrap in external format headers
+
+### What Emerged
+- LLMs default to markdown formatting (bold, headers, numbered lists) unless explicitly told not to. The SOP needs to fight against model defaults, not just specify the ideal — anti-patterns are as important as patterns.
+
+---
+
 ## 2026-02-01 — Project archival SOP
 
 **Author:** @mellanon (agent: Luna)
