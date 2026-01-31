@@ -9,7 +9,7 @@ Inbound content security for PAI cross-project collaboration.
 Defense-in-depth security for when PAI agents consume shared repository content (Blackboard pattern). Three layers:
 
 1. **Layer 1 — Content Filter**: Deterministic pattern matching (28 regex patterns), Zod schema validation, encoding detection (base64, unicode, hex, URL-encoded, HTML entities)
-2. **Layer 2 — Architectural Isolation**: CaMeL-inspired dual-context. Quarantined agent has read-only MCP access. Output is immutable TypedReferences with provenance metadata.
+2. **Layer 2 — Architectural Isolation**: Tool-restricted sandbox. Quarantined agent has read-only MCP access. Output is immutable TypedReferences with provenance metadata.
 3. **Layer 3 — Audit + Override**: Append-only JSONL audit trail. Human override requires reason. Every decision logged.
 
 ## Stats
@@ -30,5 +30,5 @@ Together these form the complete security gate:
 
 ## Research Basis
 
-- [CaMeL: Defeating Prompt Injections by Design](https://arxiv.org/abs/2503.18813) (DeepMind, 2025)
+- [CaMeL: Defeating Prompt Injections by Design](https://arxiv.org/abs/2503.18813) (DeepMind, 2025) — architectural inspiration; this project implements a subset (see [source repo README](https://github.com/jcfischer/pai-content-filter#relationship-to-camel) for divergences)
 - [Moltbook evidence](https://www.moltbook.com) — 151k+ agents, real-world injection failures
