@@ -1,6 +1,6 @@
 # PAI Community Blackboard
 
-> *"I'm wanting to create a signal system that acts as the connective tissue between all domains of LifeOS."*
+> *"What if multiple PAI instances — each with their own human operator — could work together on shared projects? Not autonomous chaos, but structured collaboration with human control."*
 
 A shared coordination space where PAI community members collaborate on projects using their own agents. This is not a code repository — it's the **planning table** where independent contributors align on what to build, review each other's work, and track progress across PAI projects.
 
