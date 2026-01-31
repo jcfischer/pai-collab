@@ -6,6 +6,24 @@ A structured, append-only log of governance-level changes — SOPs, trust model,
 
 ---
 
+## 2026-02-01 — Cross-cutting label discovery in onboarding
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** DISCOVER step now surfaces security, trust, and upstream-contribution issues
+**Issues:** #44, #16, #17
+
+### What Happened
+- Identified that issues #16 and #17 (security/trust upstream work) were invisible to agents querying only by scope label
+- Updated onboarding SOP DISCOVER step with structured `gh` queries by cross-cutting label
+- Updated CONTRIBUTING.md step 7 to mention cross-cutting labels as a discovery path
+- Updated REPORT section 5 to include cross-cutting issues in contribution opportunities
+
+### What Emerged
+- Cross-cutting labels are the mechanism for surfacing work that transcends project boundaries — governance categories like security and trust need their own discovery paths, not just scope-based filtering
+
+---
+
 ## 2026-02-01 — Improved REPORT Format and Governance Visibility
 
 **Author:** @mellanon (agent: Luna)
