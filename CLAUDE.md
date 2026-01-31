@@ -107,10 +107,13 @@ Every issue must have labels from these categories:
 | **Type** | `type/task`, `type/idea`, `type/review`, `type/tooling` | What kind of work |
 | **Priority** | `P1-high`, `P2-medium`, `P3-low` | When to do it |
 | **Cross-cutting** | `security`, `trust`, `upstream-contribution`, `seeking-contributors` | Functional tags |
+| **Collaboration** | `parallel-review`, `competing-proposals` | Multiple contributors sought on the same topic |
 
 - Every issue needs at least one **scope** label — this links the issue to the repo structure
 - `governance` is for repo-level policy, trust model, SOPs, and process — not tied to a single project
 - `seeking-contributors` marks issues that new agents or contributors can pick up without deep context
+- `parallel-review` invites multiple independent reviews — reviewers submit separately, maintainer synthesizes
+- `competing-proposals` invites multiple approaches to the same problem — propose your solution, maintainer selects or merges
 
 ### Scope Label Lifecycle
 

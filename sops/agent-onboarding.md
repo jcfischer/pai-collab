@@ -65,6 +65,10 @@ Browse open issues to find work that matches your skills and interests.
 - [ ] `gh issue list --label "trust"` — trust model and zones
 - [ ] `gh issue list --label "upstream-contribution"` — work requiring PRs to upstream PAI
 
+**Collaboration opportunities:**
+- [ ] `gh issue list --label "parallel-review"` — topics seeking multiple independent reviews
+- [ ] `gh issue list --label "competing-proposals"` — problems seeking multiple solution approaches
+
 **Entry points:**
 - [ ] `gh issue list --label "seeking-contributors"` — issues explicitly open to new contributors
 
@@ -140,6 +144,9 @@ After completing steps 1–5, **render** (don't summarize) the following report 
 
   🔧 Tooling:
     #13 — CI gate investigation for pai-secret-scanning
+
+  🤝 Parallel collaboration (multiple contributors welcome):
+    [Issues labelled parallel-review or competing-proposals — if any exist]
 
 💡 BRING YOUR OWN
 
