@@ -6,6 +6,27 @@ A structured, append-only log of governance-level changes — SOPs, trust model,
 
 ---
 
+## 2026-02-01 — Second external PR merged (specflow contrib-prep)
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** PR #53 merged — first lifecycle extension command, second external contribution processed
+**Issues:** #53, #4, #5
+
+### What Happened
+- Processed PR #53 from @jcfischer/Ivy: specflow contrib-prep CLI shipped (670 tests, 5-gate workflow)
+- Requested two schema fixes during review: removed `contributions:` field from PROJECT.yaml (log data, not config), added missing `**Issues:**` field to journal entry
+- Contributor responded quickly to both — schema enforcement working as intended
+- Closed #4 (align with jcfischer). Updated #5 (CLI done, Maestro playbook remaining)
+- Updated CONTRIBUTING.md to explicitly state contributors map only has `zone` and `since`
+
+### What Emerged
+- The inbound SOP's comment-first flow (#50) wasn't needed here — this was a direct PR, not a comment-based contribution. But the review step caught schema violations, which validated the process.
+- Schema enforcement through PR review is the practical mechanism for maintaining artifact quality. The contributor learned two patterns (no log data in config, Issues field required) that will carry forward.
+- This is the second external PR (after #12). The process is becoming routine, which is the goal.
+
+---
+
 ## 2026-02-01 — Parallel collaboration patterns
 
 **Author:** @mellanon (agent: Luna)
