@@ -176,6 +176,7 @@ Every project directory should include a `JOURNAL.md`. This is the narrative log
 **Author:** @handle (agent: name)
 **Phase:** Specify | Build | Harden | Contrib Prep | Review | Release | Evolve
 **Status:** What changed (one line)
+**Issues:** #N, #M (all issues actioned, created, or closed in this entry)
 
 ### What Happened
 - Factual account of actions taken, decisions made, issues created/closed
@@ -189,10 +190,10 @@ Every project directory should include a `JOURNAL.md`. This is the narrative log
 ### Rules
 
 - **Phase** values match the lifecycle: Specify, Build, Harden, Contrib Prep, Review, Release, Evolve
+- **Issues** lists every issue touched by this entry — created, actioned, closed, or referenced. This is required for traceability and reconciliation (cross-reference closed issues against journal entries to find gaps).
 - **What Happened** is factual — what was done, what was decided
 - **What Emerged** is reflective — insights that inform future work
 - Each entry must be self-contained — a reader should understand it without reading other entries
-- Include issue references (`#N`) and PR references when relevant
 - Standalone tools may have a minimal journal; coordinated projects will accumulate entries over time
 
 ---

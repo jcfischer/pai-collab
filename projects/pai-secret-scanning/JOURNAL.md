@@ -11,6 +11,7 @@ A structured, append-only log of what happened on this project. New entries go a
 **Author:** @mellanon (agent: Luna)
 **Phase:** Evolve
 **Status:** STATUS.md created (#27 closed), agent onboarding SOP created (#28 closed)
+**Issues:** #27, #28
 
 ### What Happened
 - Created `STATUS.md` at repo root — a living index showing per-project status, open issues, governance issues, security/trust blockers, contribution opportunities, and contributor overview
@@ -33,6 +34,7 @@ A structured, append-only log of what happened on this project. New entries go a
 **Author:** @mellanon (agent: Luna)
 **Phase:** Evolve
 **Status:** CONTRIBUTING.md, CLAUDE.md updated; issue #24 created; all issues labelled
+**Issues:** #24, #25, #26
 
 ### What Happened
 - Added "Start Here" reading order to CONTRIBUTING.md — a six-step onboarding path for new agents or contributors arriving at pai-collab for the first time
@@ -53,6 +55,7 @@ A structured, append-only log of what happened on this project. New entries go a
 **Author:** @mellanon (agent: Luna)
 **Phase:** Evolve
 **Status:** CLAUDE.md updated with artifact schema table and update triggers
+**Issues:** #21
 
 ### What Happened
 - Added "Artifact Schemas (MANDATORY)" section to CLAUDE.md — table mapping each artifact to its schema location in CONTRIBUTING.md and the triggers that require updating it
@@ -73,6 +76,7 @@ A structured, append-only log of what happened on this project. New entries go a
 **Author:** @mellanon (agent: Luna)
 **Phase:** Evolve
 **Status:** All artifact schemas documented in CONTRIBUTING.md, REGISTRY.md staleness fixed (closes #23)
+**Issues:** #23
 
 ### What Happened
 - Scanned all 26 files in pai-collab for undocumented artifact schemas — found 5 gaps
@@ -96,6 +100,7 @@ A structured, append-only log of what happened on this project. New entries go a
 **Author:** @mellanon (agent: Luna)
 **Phase:** Evolve
 **Status:** PROJECT.yaml schema documented in CONTRIBUTING.md, all four project files aligned (closes #22)
+**Issues:** #22
 
 ### What Happened
 - Identified that three (now four) PROJECT.yaml files used inconsistent field names and structures — no canonical schema existed for contributors to reference
@@ -120,6 +125,7 @@ A structured, append-only log of what happened on this project. New entries go a
 **Author:** @mellanon (agent: Luna)
 **Phase:** Evolve
 **Status:** CONTRIBUTORS.yaml created, all PROJECT.yaml files updated with trust zones (closes #19)
+**Issues:** #19
 
 ### What Happened
 - Created `CONTRIBUTORS.yaml` at repo root — repo-level trust zones for all contributors
@@ -143,6 +149,7 @@ A structured, append-only log of what happened on this project. New entries go a
 **Author:** @mellanon (agent: Luna)
 **Phase:** Evolve
 **Status:** Inbound contribution SOP created (#20 closed), CLAUDE.md self-alignment check added
+**Issues:** #20
 
 ### What Happened
 - Created `sops/inbound-contribution-protocol.md` (#20) — 8-step protocol for processing external PRs: RECEIVE → ASSESS → REVIEW → DECIDE → MERGE → FOLLOW UP → JOURNAL → ANNOUNCE
@@ -166,6 +173,7 @@ A structured, append-only log of what happened on this project. New entries go a
 **Author:** @mellanon (agent: Luna)
 **Phase:** Evolve
 **Status:** CLAUDE.md created (#21), TRUST-MODEL.md updated with two-level scoping, SOPs aligned with trust model
+**Issues:** #20, #21
 
 ### What Happened
 - Added two-level trust zone scoping to TRUST-MODEL.md: repo-level (CONTRIBUTORS.yaml) for overall trust, project-level (PROJECT.yaml) for project governance. A contributor can be maintainer of their project without elevated repo-level trust.
@@ -189,6 +197,7 @@ A structured, append-only log of what happened on this project. New entries go a
 **Author:** @mellanon (agent: Luna)
 **Phase:** Evolve
 **Status:** TRUST-MODEL.md updated from two zones to three, issue #19 updated
+**Issues:** #19
 
 ### What Happened
 - Reviewed Council debate output against TRUST-MODEL.md and issue #19 — identified that Ava's Wikipedia three-zone model was lost during synthesis
@@ -210,6 +219,7 @@ A structured, append-only log of what happened on this project. New entries go a
 **Author:** @mellanon (agent: Luna)
 **Phase:** Evolve
 **Status:** Six trust architecture issues created (#15–#19), TRUST-MODEL.md committed
+**Issues:** #13, #15, #16, #17, #18, #19
 
 ### What Happened
 - Pushed deeper on the question: if pai-secret-scanning solves outbound secrets, what about inbound threats?
@@ -234,6 +244,7 @@ A structured, append-only log of what happened on this project. New entries go a
 **Author:** @mellanon (agent: Luna)
 **Phase:** Contrib Prep
 **Status:** Issue #14 closed — REGISTRY.md, CONTRIBUTING.md, README.md updated
+**Issues:** #14
 
 ### What Happened
 - Processing PR #12 revealed a gap: contribution docs assumed all contributions need full project directories
@@ -253,6 +264,7 @@ A structured, append-only log of what happened on this project. New entries go a
 **Author:** @mellanon (agent: Luna)
 **Phase:** Contrib Prep
 **Status:** Issue #13 updated with infrastructure framing, SOP updated
+**Issues:** #13
 
 ### What Happened
 - Reframed pai-secret-scanning from "just another project" to collaboration infrastructure — a prerequisite for safe contribution
@@ -270,6 +282,7 @@ A structured, append-only log of what happened on this project. New entries go a
 **Author:** @mellanon (agent: Luna)
 **Phase:** Review
 **Status:** PR #12 merged — Ivy agent and pai-secret-scanning registered
+**Issues:** #13, #14
 
 ### What Happened
 - @jcfischer submitted PR #12 — first external contribution to pai-collab
