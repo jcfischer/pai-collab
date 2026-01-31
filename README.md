@@ -52,9 +52,13 @@ The blackboard is a coordination surface — it tracks *what's being built*, not
 
 | Blackboard Project | What It Is | Code Lives At | Maintainer |
 |-------------------|-----------|---------------|------------|
-| [Signal](projects/signal/) | Observability stack for PAI | [danielmiessler/PAI](https://github.com/danielmiessler/PAI) | @mellanon |
+| [Signal](projects/signal/) | Observability stack for PAI | Private branch — public contrib branch TBD | @mellanon |
 | [SpecFlow Lifecycle](projects/specflow-lifecycle/) | Four missing lifecycle playbooks | [jcfischer/specflow-bundle](https://github.com/jcfischer/specflow-bundle) | @jcfischer |
 | [Skill Enforcer](projects/skill-enforcer/) | Deterministic skill surfacing hook | [jcfischer/pai-skill-enforcer](https://github.com/jcfischer/pai-skill-enforcer) | @jcfischer |
+
+| Shared Resource | What It Is |
+|----------------|-----------|
+| [Maestro PAI Playbooks](https://github.com/mellanon/maestro-pai-playbooks) | Playbook-driven autonomous development — SpecFlow, PR Review, constitutional docs |
 
 The blackboard holds vision, status, reviews, and SOPs. The source repos hold the code. Contributors work on their own forks; structured rigour comes at merge time.
 
@@ -64,9 +68,17 @@ The [SOPs](sops/) document the end-to-end lifecycle — from building with SpecF
 
 ## Origin
 
-Several threads converged into this idea. On the PAI community Discord, members had been discussing daemon infrastructure — Swift (@0xsalt) building a [daemon registry](https://github.com/0xsalt/daemon-mcp) for agent discovery, Chris Cantey proposing a [community directory](https://share.chriscantey.com/Ffz01RmDUskQ3HPOEO/index.html), and the broader question of how PAI instances could find and interact with each other. Separately, [Moltbook](https://gagadget.com/en/693922-the-day-has-come-ai-agents-have-their-own-social-network-moltbook/) (37,000+ AI agents) proved that autonomous agent interaction works at scale, though for social rather than productive purposes. Then Daniel Miessler shared his GitHub-based operating model on X — a working implementation of humans and AI workers coordinating through a shared repo. Andreas (@mellanon) and Jens-Christian Fischer (@jcfischer) discussed Daniel's post, and Jens recognized the formal pattern: the blackboard architecture.
+Several threads converged into this idea:
 
-That convergence — daemon discovery + bot network proof-of-concept + Daniel's practical implementation + Jens' architectural pattern recognition, all emerging from community conversations — is itself an example of the blackboard in action.
+**Daemon infrastructure** — On the PAI community Discord, Swift ([@0xsalt](https://github.com/0xsalt)) was building a [daemon registry](https://github.com/0xsalt/daemon-mcp) for agent discovery. Chris Cantey proposed a [community directory](https://share.chriscantey.com/Ffz01RmDUskQ3HPOEO/index.html). The broader question: how could PAI instances find and interact with each other?
+
+**Bot networks at scale** — [Moltbook](https://gagadget.com/en/693922-the-day-has-come-ai-agents-have-their-own-social-network-moltbook/) proved autonomous agent interaction works — 37,000+ AI agents communicating. Social, not productive, but proof the pattern scales.
+
+**A working implementation** — Daniel Miessler shared his GitHub-based operating model on X: humans and AI workers coordinating through a shared repo with `TASKLIST.md` as the central knowledge base.
+
+**Pattern recognition** — Andreas ([@mellanon](https://github.com/mellanon)) and Jens-Christian Fischer ([@jcfischer](https://github.com/jcfischer)) discussed Daniel's post. Jens recognized the formal pattern: the [blackboard architecture](https://en.wikipedia.org/wiki/Blackboard_(design_pattern)) (Hayes-Roth, 1985) — independent knowledge sources collaborating through a shared knowledge base with human control.
+
+That convergence — daemon discovery + bot network proof-of-concept + practical implementation + architectural pattern recognition, all emerging from community conversations — is itself an example of the blackboard in action.
 
 ---
 
