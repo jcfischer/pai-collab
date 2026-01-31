@@ -41,8 +41,8 @@ Understand both the current state and recent momentum.
 **Recent activity:**
 - [ ] Read the latest 2–3 entries in `JOURNAL.md` (root) — recent governance changes
 - [ ] Read the latest entry in each `projects/*/JOURNAL.md` — recent project activity
-- [ ] Query recently closed issues: `gh issue list --state closed`
-- [ ] Query recent PRs: `gh pr list --state merged`
+- [ ] Query recently closed issues: `gh issue list --state closed` (do NOT add --limit — it gives wrong counts)
+- [ ] Query recent PRs: `gh pr list --state merged` (do NOT add --limit)
 
 ### 3. ORIENT
 
