@@ -95,8 +95,7 @@ pai-collab/
 │   ├── signal/                  # PAI Signal — observability stack
 │   │   ├── README.md            # Project overview, architecture, status
 │   │   ├── PROJECT.yaml         # Source pointers (repo, branch, paths, tests)
-│   │   ├── SPEC.md              # Architecture spec
-│   │   ├── TELOS.md             # Mission, goals, challenges, success criteria
+│   │   ├── TELOS.md             # Vision, architecture direction, goals, challenges
 │   │   ├── JOURNAL.md           # Journey log — what happened, what's emerging
 │   │   ├── OPEN-SPEC.md         # Living spec (post-v1.0 evolution)
 │   │   └── reviews/             # Community review findings

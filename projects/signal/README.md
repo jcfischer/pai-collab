@@ -47,7 +47,7 @@ The PAI Signal Stack is an advanced observability pipeline — Vector Collector 
 | Collector | Vector | Tails JSONL, transforms, routes to multiple sinks. Battle-tested. |
 | Dashboards | Grafana | Portable dashboards work with either VM or LGTM backend. |
 
-Full spec: [SPEC.md](SPEC.md) | Original gist: [Signal Spec](https://gist.github.com/mellanon/62a12ddef60ca7ff74331c2983fb43c7)
+Architecture direction: [TELOS.md](TELOS.md) | Original spec gist: [Signal Spec](https://gist.github.com/mellanon/62a12ddef60ca7ff74331c2983fb43c7)
 
 ---
 
@@ -124,8 +124,7 @@ The review pipeline (automated gates + Maestro PR_Review playbook + community ag
 
 | File | Purpose |
 |------|---------|
-| [SPEC.md](SPEC.md) | Architecture specification — full technical design |
-| [TELOS.md](TELOS.md) | Mission, goals, challenges, success criteria |
+| [TELOS.md](TELOS.md) | Vision, architecture direction, goals, challenges, success criteria |
 | [JOURNAL.md](JOURNAL.md) | Journey log — what happened, what's emerging |
 | [PROJECT.yaml](PROJECT.yaml) | Source pointers — repo, branch, paths, test command |
 | [OPEN-SPEC.md](OPEN-SPEC.md) | Living spec — populated after v1.0 merge |

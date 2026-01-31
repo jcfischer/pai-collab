@@ -8,6 +8,32 @@ Signal is more than monitoring tooling. It's the nervous system: every signal fr
 
 ![Signal Gateway: The Nervous System](../../assets/pai-signal-nervous-system.png)
 
+## Architecture Direction
+
+The Signal Gateway is **pure transport** — it connects producers to consumers, never decides. Three layers, progressively adoptable:
+
+| Layer | What You Get | Complexity |
+|-------|--------------|------------|
+| **Stage 0: CLI Only** | JSONL files + grep/jq queries | Zero setup |
+| **Stage 1: Local Stack** | Grafana dashboards, historical queries | `docker compose up` |
+| **Stage 2+: Distributed** | Multi-machine, alerting, cloud backends | Production-ready |
+
+**Producers** (top layer): PAI hooks, MQTT sensors, webhooks, Telegram, IoT devices — anything that emits a signal.
+
+**Gateway** (middle layer): Vector Collector ingests, routes to all subscribers. Pure transport, no processing logic.
+
+**Consumers** (bottom layer): VictoriaMetrics (storage, calculations, projections), PAI "the brain" (watches, decides, directs), home automation (actuators, devices), Grafana (dashboards, alerts).
+
+![Signal Gateway Transport](../../assets/pai-signal-gateway-transport.png)
+
+**Key infrastructure decisions:**
+- **OrbStack** over Docker Desktop (~300MB vs ~2GB RAM)
+- **VictoriaMetrics** over Grafana LGTM (~400MB vs ~1GB RAM, 15x better log compression)
+- **Vector** as collector (excellent self-observability, tails JSONL natively)
+- **Grafana** for dashboards (portable — works with either backend)
+
+The full technical specification lives in the source repository and will be available once the contrib branch is published.
+
 ## What It Does
 
 PAI Signal is an advanced observability pipeline — Vector Collector consuming JSONL Events and forwarding to pluggable backends:
@@ -17,7 +43,7 @@ PAI Signal is an advanced observability pipeline — Vector Collector consuming 
 - **VictoriaMetrics storage** for metrics, logs, and distributed traces
 - **Grafana dashboards** provisioned for sessions, tools, agents, costs
 - **Docker Compose orchestration** — `docker compose up` for the full stack
-- **Progressive architecture** — CLI-only (Stage 0) → Local stack (Stage 1) → Distributed (Stage 2+)
+- **Progressive architecture** — from zero-setup CLI to full distributed stack
 
 ## Current State
 
@@ -27,7 +53,11 @@ PAI Signal is an advanced observability pipeline — Vector Collector consuming 
 - Working end-to-end on private branch `feature/signal-agent-2`
 - **Currently:** Extracting from private trunk for community collaboration
 
-## The 80/20 Split
+## How It Was Built
+
+Built using [Maestro](https://runmaestro.ai/) playbooks with Claude Code, PAI, and [SpecFlow](https://github.com/jcfischer/specflow-bundle) working together. Two parallel agents produced 18 features in about 24 hours of autonomous execution.
+
+### The 80/20 Split
 
 | Who | Commits | Lines | Nature |
 |-----|---------|-------|--------|
@@ -64,6 +94,6 @@ Signal is the first project through the blackboard system. It tests the entire c
 
 ## References
 
-- [Architecture Spec](SPEC.md) | [Full Spec (Gist)](https://gist.github.com/mellanon/62a12ddef60ca7ff74331c2983fb43c7)
-- [Maestro PAI Playbooks](https://github.com/mellanon/maestro-pai-playbooks)
+- [Full Spec (Gist)](https://gist.github.com/mellanon/62a12ddef60ca7ff74331c2983fb43c7) — original requirements shared on Discord
+- [Maestro PAI Playbooks](https://github.com/mellanon/maestro-pai-playbooks) — playbook-driven development
 - [Signal Gateway Transport Diagram](../../assets/pai-signal-gateway-transport.png)
