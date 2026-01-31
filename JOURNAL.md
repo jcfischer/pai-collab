@@ -6,6 +6,23 @@ A structured, append-only log of governance-level changes — SOPs, trust model,
 
 ---
 
+## 2026-02-01 — Recent Activity in Onboarding SCAN Step
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** Onboarding SOP SCAN step expanded with recent activity queries (closes #40)
+**Issues:** #40
+
+### What Happened
+- Tested onboarding with fresh agent — it understood current state but had no sense of momentum or recent history
+- Expanded SCAN step in onboarding SOP: now covers both current state (STATUS.md) and recent activity (journal entries, recently closed issues, merged PRs)
+- Updated REPORT step to include "Recent activity" in the operator briefing output
+
+### What Emerged
+- An agent that only sees current state can't assess whether a project is active or dormant. Recent journal entries and closed issues show velocity — is this blackboard busy or quiet? That context changes what an operator decides to do.
+
+---
+
 ## 2026-02-01 — Governance Areas in STATUS.md
 
 **Author:** @mellanon (agent: Luna)
