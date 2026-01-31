@@ -120,7 +120,7 @@ The contrib branch is a **sanitization gate** that forces explicit file selectio
 
 ## Existing Process Knowledge: _SPECFIRST Skill
 
-We're not starting from scratch. The [_SPECFIRST skill](https://github.com/danielmiessler/PAI) already encodes the full release lifecycle as PAI workflows — battle-tested across three real contributions:
+We're not starting from scratch. The [_SPECFIRST skill](https://github.com/mellanon/Personal_AI_Infrastructure/tree/contrib-specfirst-v1.0.0) already encodes the full release lifecycle as PAI workflows — battle-tested across three real contributions:
 
 | Contribution | Scale | Outcome |
 |-------------|-------|---------|
@@ -194,13 +194,13 @@ Based on the [SpecFirst Release Framework](https://github.com/mellanon/pai-1.2/b
 
 ### 4. Open Spec Template
 
-SpecFlow handles v0 → v1.0.0. Open Spec handles evolution post-merge:
+SpecFlow handles v0 → v1.0.0. [Open Spec](https://github.com/Fission-AI/OpenSpec) handles evolution post-merge — spec-driven development (SDD) for AI coding assistants:
 
 ```
 Open Spec (baseline + Change Proposals) → CP approved → SpecFlow cycle → ship → Open Spec (updated baseline)
 ```
 
-Uses the [OpenSpec directory structure](https://github.com/jcfischer/specflow-bundle):
+Uses the [OpenSpec directory structure](https://github.com/Fission-AI/OpenSpec) (integrated into [SpecFlow bundle](https://github.com/jcfischer/specflow-bundle)):
 ```
 openspec/
 ├── specs/           # Current source of truth (baseline)
@@ -273,18 +273,6 @@ The playbooks validate against these PAI constitutional documents at every phase
 
 ---
 
-## Anti-Patterns to Guard Against
-
-| Anti-Pattern | Guard |
-|--------------|-------|
-| Init and Abandon | Loop enforcement — must complete or fail explicitly |
-| Quick Questions Instead of Interview | 8-phase interview protocol required |
-| Time Pressure Rationalization | Quality gates block advancement |
-| One Test File = TDD | Task-level test verification |
-| Skip Sanitization | File inventory is law, 8 approval gates |
-
----
-
 ## Proven by Signal
 
 [PAI Signal](../signal/) (25,000 lines, 102 files, 708 tests) is the first project to need the full lifecycle. The experience of building Signal through SpecFlow and then hitting the "works but not merge-ready" gap is what identified these missing phases. See Signal's [JOURNAL.md](../signal/JOURNAL.md) for the full story.
@@ -301,8 +289,9 @@ The playbooks validate against these PAI constitutional documents at every phase
 | What | Where |
 |------|-------|
 | SpecFlow Bundle | [jcfischer/specflow-bundle](https://github.com/jcfischer/specflow-bundle) |
+| OpenSpec | [Fission-AI/OpenSpec](https://github.com/Fission-AI/OpenSpec) — Spec-driven development for AI coding assistants |
 | Maestro Playbooks | [mellanon/maestro-pai-playbooks](https://github.com/mellanon/maestro-pai-playbooks) |
-| SpecFirst Skill | [PAI _SPECFIRST skill](https://github.com/danielmiessler/PAI) (private, will be contributed) |
+| SpecFirst Skill | [PAI _SPECFIRST skill](https://github.com/mellanon/Personal_AI_Infrastructure/tree/contrib-specfirst-v1.0.0) |
 | Maestro | [pedramamini/Maestro](https://github.com/pedramamini/Maestro) |
 
 ## Project Files
