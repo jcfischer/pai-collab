@@ -39,6 +39,9 @@ jobs:
       - name: Check REGISTRY alignment
         run: node .github/scripts/check-registry-alignment.mjs
 
+      - name: Check STATUS alignment
+        run: node .github/scripts/check-status-alignment.mjs
+
       - name: Check STATUS.md updated
         run: |
           # If any PROJECT.yaml changed, STATUS.md should also be in the diff

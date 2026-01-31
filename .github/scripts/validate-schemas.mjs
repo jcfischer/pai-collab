@@ -91,7 +91,7 @@ if (existsSync(projectsDir)) {
     // Check for JOURNAL.md
     const journalPath = join(projectsDir, project, 'JOURNAL.md');
     if (!existsSync(journalPath)) {
-      warn(yamlPath, `No JOURNAL.md found in projects/${project}/. Every project directory should include one.`);
+      error(yamlPath, `No JOURNAL.md found in projects/${project}/. Every project directory must include one. See CONTRIBUTING.md → JOURNAL.md Schema.`);
     }
 
     // Check for README.md

@@ -112,7 +112,7 @@ Every issue must have labels from these categories:
 
 - Every issue needs at least one **scope** label — this links the issue to the repo structure
 - `governance` is for repo-level policy, trust model, SOPs, and process — not tied to a single project
-- `seeking-contributors` marks issues that new agents or contributors can pick up without deep context
+- `seeking-contributors` is a signal label (listed under Cross-cutting) that pairs with Collaboration labels to compose requests. It marks issues open to new contributors — use alongside `parallel-review`, `competing-proposals`, or `expertise-needed` to specify what kind of help is needed
 - `parallel-review` invites multiple independent reviews — reviewers submit separately, maintainer synthesizes
 - `competing-proposals` invites multiple approaches to the same problem — propose your solution, maintainer selects or merges
 
@@ -122,7 +122,7 @@ When a new `projects/` directory is created, a corresponding `project/<name>` la
 
 1. **Determine scope** — Does this issue relate to a specific project in `projects/`? If yes, use `project/<name>`. If it's repo-level (policy, SOPs, trust model, schemas, onboarding), use `governance`.
 2. **Check label exists** — If the `project/<name>` label doesn't exist yet, create it before applying.
-3. **Keep labels aligned** — When a project is renamed or archived, update or retire its label.
+3. **Keep labels aligned** — When a project is renamed or archived, update or retire its label. For archived projects, delete the `project/<name>` scope label per `sops/project-archival.md`.
 4. **One scope minimum** — Never create an issue without a scope label. An unscoped issue is invisible to agents filtering by area.
 
 ---
