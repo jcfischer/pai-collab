@@ -118,64 +118,59 @@ The contrib branch is a **sanitization gate** that forces explicit file selectio
 
 ---
 
-## Blueprint: OpenSpec Standard + _SPECFIRST Skill
+## Blueprint and Future State
 
-We're not starting from scratch. Two existing projects together provide the blueprint — the reference architecture — for extending the SpecFlow bundle with full lifecycle support:
+We're not starting from scratch. Two existing projects provide the blueprint for what the SpecFlow bundle needs to become:
 
-### The OpenSpec Standard
+### Reference Architecture
 
-[OpenSpec](https://github.com/Fission-AI/OpenSpec) defines the **spec-driven development (SDD) standard** for AI coding assistants. It provides the specification format, directory structure, and change proposal workflow that SpecFlow already implements for the build phase. The same standard applies to post-merge evolution — Open Spec baselines track what shipped, and Change Proposals drive what's next.
+| Source | What It Provides | Status |
+|--------|-----------------|--------|
+| [OpenSpec](https://github.com/Fission-AI/OpenSpec) | The **spec-driven development (SDD) standard** — spec format, directory structure, change proposal workflow. SpecFlow already implements this for the build phase. | Active standard |
+| [_SPECFIRST skill](https://github.com/mellanon/Personal_AI_Infrastructure/tree/contrib-specfirst-v1.0.0) | The **release lifecycle process** — Contrib Prep, Release, and Open Spec phases encoded as PAI workflows. Battle-tested across 3 contributions (131 files total). | Reference architecture — to be superseded |
 
-OpenSpec is the "what a spec looks like" standard. SpecFlow is the "how to execute specs" tool.
+**Key artifacts in _SPECFIRST (process knowledge to absorb):**
+- **`workflows/Release.md`** — Full fork contribution workflow with 8 human approval gates, tag-before-contrib pattern, cherry-pick from tag, sanitization checklist (~574 lines)
+- **`templates/RELEASE-FRAMEWORK.md`** — Scope definition, sanitization rules, propagation process, CHANGELOG management, pre-release checklist, version lifecycle
 
-### The _SPECFIRST Skill
-
-The [_SPECFIRST skill](https://github.com/mellanon/Personal_AI_Infrastructure/tree/contrib-specfirst-v1.0.0) encodes the full release lifecycle as PAI workflows — the Contrib Prep, Release, and Open Spec phases that SpecFlow doesn't yet cover. It's been battle-tested across three real contributions:
-
+**Battle-tested across:**
 | Contribution | Scale | Outcome |
 |-------------|-------|---------|
 | Context Skill | 50 files | Process validated, PR submitted |
 | Jira Skill | 18 files | Process validated, PR submitted |
 | pai-knowledge | 63 files | Process validated, PR submitted |
 
-**Key artifacts in _SPECFIRST:**
-- **`workflows/Release.md`** — The full fork contribution workflow with 8 human approval gates, tag-before-contrib pattern, cherry-pick from tag, sanitization checklist (~574 lines of proven process)
-- **`templates/RELEASE-FRAMEWORK.md`** — Scope definition, sanitization rules, propagation process, CHANGELOG management, pre-release checklist, version lifecycle
+### Future State: SpecFlow as End-to-End Lifecycle Tool
 
-### How they combine
-
-Together, OpenSpec + _SPECFIRST provide the complete blueprint for extending SpecFlow:
+The _SPECFIRST skill is a stepping stone — it will be **superseded** by an extended SpecFlow bundle that natively supports the full lifecycle. The future state:
 
 ```
-OpenSpec Standard                    _SPECFIRST Skill
-────────────────                    ────────────────
-Spec format + structure             Process knowledge + gates
-Change Proposal workflow            Contrib Prep workflow (8 gates)
-Directory conventions               Release workflow (tag-before-contrib)
-SDD methodology                     Sanitization checklist
-                 ↘                ↙
-              SpecFlow Bundle Extension
-              ─────────────────────────
-              New CLI commands:
-              • specflow contrib-prep
-              • specflow review
-              • specflow release
-              • specflow openspec
-                        ↓
-              Maestro Playbooks
-              ─────────────────
-              Orchestration + human gates
-              wrapping the CLI commands
+┌──────────────────────────────────────────────────────────────────────┐
+│                     SPECFLOW BUNDLE (future)                         │
+│                                                                      │
+│  Today (build):          Extension (new):          Post-merge:       │
+│  specflow specify        specflow contrib-prep     specflow openspec │
+│  specflow plan           specflow review                             │
+│  specflow implement      specflow release                            │
+│                                                                      │
+│  SQLite state tracking across ALL phases                             │
+│  Quality gates, interview protocol, TDD — extended to full lifecycle │
+└──────────────────────────────────────────────────────────────────────┘
+                                    │
+                    ┌───────────────┼───────────────┐
+                    │      MAESTRO PLAYBOOKS        │
+                    │                               │
+                    │  Orchestration + human gates   │
+                    │  wrapping SpecFlow CLI commands │
+                    │  .maestro/ state management    │
+                    └───────────────────────────────┘
 ```
 
-The goal of this project is to encode that combined process knowledge into the tooling stack:
-1. **SpecFlow CLI commands** (`specflow contrib-prep`, `specflow review`, `specflow release`, `specflow openspec`) — coordinating with @jcfischer on whether these belong in [jcfischer/specflow-bundle](https://github.com/jcfischer/specflow-bundle) or a separate extension
-2. **Maestro playbooks** wrapping those CLI commands with orchestration, human approval gates, and `.maestro/` state management
-3. **PAI skills** (where appropriate) making phases invocable from any session
+OpenSpec defines the standard. _SPECFIRST provides the process knowledge to absorb. The SpecFlow bundle becomes the single tool that supports the full lifecycle — from spec to shipped code to post-merge evolution. Maestro playbooks orchestrate it with human gates.
 
-The pattern: OpenSpec defines the standard. _SPECFIRST provides the process knowledge. SpecFlow provides the CLI + state. Maestro provides the orchestration + gates. Signal validates everything as the first project through the full pipeline.
+Once the SpecFlow bundle covers the full lifecycle, the _SPECFIRST skill becomes redundant and can be retired.
 
-**Tracked in:** Issues [#4](https://github.com/mellanon/pai-collab/issues) (align with Jens), [#5](https://github.com/mellanon/pai-collab/issues) (Contrib Prep), [#6](https://github.com/mellanon/pai-collab/issues) (Review), [#7](https://github.com/mellanon/pai-collab/issues) (Release), [#8](https://github.com/mellanon/pai-collab/issues) (Open Spec)
+**Tracked in:** Issues [#4](https://github.com/mellanon/pai-collab/issues) (align with Jens on bundle extension), [#5](https://github.com/mellanon/pai-collab/issues) (Contrib Prep), [#6](https://github.com/mellanon/pai-collab/issues) (Review), [#7](https://github.com/mellanon/pai-collab/issues) (Release), [#8](https://github.com/mellanon/pai-collab/issues) (Open Spec)
 
 ---
 
@@ -252,31 +247,35 @@ openspec/
 
 ## The Complete Lifecycle
 
-With all four playbooks, the full lifecycle becomes:
+With the extended SpecFlow bundle, the full lifecycle becomes one tool from spec to evolution:
 
 ```
-                    ┌───────────────────────────────────────────────────┐
-                    │            SPECFLOW (existing)                    │
-                    │  SPECIFY → PLAN → TASKS → IMPLEMENT               │
-                    │     ↑ quality gates ↑ TDD enforcement             │
-                    └────────────────────┬──────────────────────────────┘
-                                         │
-                              HARDEN (human acceptance)
-                                         │
-                    ┌────────────────────┼──────────────────────────────┐
-                    │       LIFECYCLE EXTENSION (new)                   │
-                    │                    │                              │
-                    │  CONTRIB PREP → REVIEW → RELEASE                  │
-                    │  (sanitize)    (independent)  (8 gates)           │
-                    │                    │                              │
-                    └────────────────────┼──────────────────────────────┘
-                                         │
-                                    MERGE TO UPSTREAM
-                                         │
-                    ┌────────────────────┼──────────────────────────────┐
-                    │          OPEN SPEC (evolution)                    │
-                    │  baseline + Change Proposals → next cycle         │
-                    └───────────────────────────────────────────────────┘
+┌──────────────────────────────────────────────────────────────────────────┐
+│                          SPECFLOW BUNDLE                                  │
+│                                                                          │
+│  ┌─────────────────────────────────────────────────────────────────┐     │
+│  │  BUILD (existing)                                                │     │
+│  │  SPECIFY → PLAN → TASKS → IMPLEMENT                              │     │
+│  │     ↑ quality gates ↑ TDD enforcement ↑ interview protocol       │     │
+│  └────────────────────────────┬────────────────────────────────────┘     │
+│                                │                                         │
+│                     HARDEN (human acceptance)                            │
+│                                │                                         │
+│  ┌────────────────────────────┼────────────────────────────────────┐     │
+│  │  SHIP (new — from _SPECFIRST blueprint)                          │     │
+│  │  CONTRIB PREP → REVIEW → RELEASE                                 │     │
+│  │  (sanitize)    (independent)  (8 gates, tag-before-contrib)      │     │
+│  └────────────────────────────┼────────────────────────────────────┘     │
+│                                │                                         │
+│                           MERGE TO UPSTREAM                              │
+│                                │                                         │
+│  ┌────────────────────────────┼────────────────────────────────────┐     │
+│  │  EVOLVE (new — from OpenSpec standard)                           │     │
+│  │  baseline + Change Proposals → next SpecFlow cycle               │     │
+│  └─────────────────────────────────────────────────────────────────┘     │
+│                                                                          │
+│  SQLite state tracking across ALL phases                                 │
+└──────────────────────────────────────────────────────────────────────────┘
 ```
 
 ---
