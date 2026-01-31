@@ -4,10 +4,13 @@ on:
   pull_request:
     types: [opened, synchronize, reopened]
     paths:
-      - 'projects/**/PROJECT.yaml'
-      - 'projects/**/JOURNAL.md'
+      - 'projects/**'
       - 'REGISTRY.md'
       - 'STATUS.md'
+      - 'sops/**'
+      - 'CONTRIBUTING.md'
+      - 'CLAUDE.md'
+      - 'TRUST-MODEL.md'
 
 jobs:
   validate:
@@ -44,5 +47,27 @@ jobs:
             STATUS_CHANGED=$(git diff --name-only ${{ github.event.pull_request.base.sha }}..HEAD -- 'STATUS.md')
             if [ -z "$STATUS_CHANGED" ]; then
               echo "::warning::PROJECT.yaml was modified but STATUS.md was not updated. Per CLAUDE.md rules, STATUS.md should be updated when project status changes."
+            fi
+          fi
+
+      - name: Check JOURNAL.md updated
+        run: |
+          BASE_SHA=${{ github.event.pull_request.base.sha }}
+
+          # Check project-level changes need project journal
+          for project_dir in $(git diff --name-only $BASE_SHA..HEAD -- 'projects/' | sed 's|projects/\([^/]*\)/.*|\1|' | sort -u); do
+            PROJECT_JOURNAL="projects/${project_dir}/JOURNAL.md"
+            JOURNAL_CHANGED=$(git diff --name-only $BASE_SHA..HEAD -- "$PROJECT_JOURNAL")
+            if [ -z "$JOURNAL_CHANGED" ]; then
+              echo "::warning file=${PROJECT_JOURNAL}::Project '${project_dir}' was modified but its JOURNAL.md was not updated. Per CLAUDE.md: after every commit, update the relevant JOURNAL.md."
+            fi
+          done
+
+          # Check governance-level changes need root journal
+          GOV_CHANGES=$(git diff --name-only $BASE_SHA..HEAD -- 'sops/' 'CONTRIBUTING.md' 'CLAUDE.md' 'TRUST-MODEL.md' 'CONTRIBUTORS.yaml' 'STATUS.md')
+          if [ -n "$GOV_CHANGES" ]; then
+            ROOT_JOURNAL=$(git diff --name-only $BASE_SHA..HEAD -- 'JOURNAL.md')
+            if [ -z "$ROOT_JOURNAL" ]; then
+              echo "::warning file=JOURNAL.md::Governance files were modified but root JOURNAL.md was not updated. Per CLAUDE.md: governance changes should be journaled in the root JOURNAL.md."
             fi
           fi
