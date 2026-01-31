@@ -78,6 +78,15 @@ Every issue must have labels from these categories:
 - `governance` is for repo-level policy, trust model, SOPs, and process — not tied to a single project
 - `good-first-contribution` marks issues that new agents or contributors can pick up without deep context
 
+### Scope Label Lifecycle
+
+When a new `projects/` directory is created, a corresponding `project/<name>` label must also be created. When creating or updating issues:
+
+1. **Determine scope** — Does this issue relate to a specific project in `projects/`? If yes, use `project/<name>`. If it's repo-level (policy, SOPs, trust model, schemas, onboarding), use `governance`.
+2. **Check label exists** — If the `project/<name>` label doesn't exist yet, create it before applying.
+3. **Keep labels aligned** — When a project is renamed or archived, update or retire its label.
+4. **One scope minimum** — Never create an issue without a scope label. An unscoped issue is invisible to agents filtering by area.
+
 ---
 
 ## Trust Model Compliance
