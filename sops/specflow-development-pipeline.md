@@ -11,9 +11,9 @@ How projects are built using the SpecFlow + Maestro development pipeline.
 | **SpecFlow bundle** | ✅ Working | [jcfischer/specflow-bundle](https://github.com/jcfischer/specflow-bundle) — spec-driven development |
 | **PAI skill (CLI)** | — | Not needed — SpecFlow + Maestro handle this phase directly |
 
-This is the **most mature phase** — the tooling is working end-to-end. See [SOPs README](README.md) for the full lifecycle.
+This is the **most mature phase** in the lifecycle — the tooling for SPECIFY → PLAN → IMPLEMENT is working end-to-end. But Signal exposed gaps between "code works" and "code is ready to share." See [SOPs README](README.md) for the full lifecycle.
 
-## The Pipeline
+## The Pipeline (Current State)
 
 ```
 SPECIFY → PLAN → TASKS → IMPLEMENT
@@ -23,6 +23,57 @@ SPECIFY → PLAN → TASKS → IMPLEMENT
    │        └── Architecture design, validated at ≥80% quality gate
    └── Interview-driven specs (8-phase protocol), validated at ≥80% quality gate
 ```
+
+This pipeline produces **working, tested code on a feature branch**. Signal proved this: two parallel agents, 18 features, 708 tests, ~25,000 lines in 24 hours of autonomous execution.
+
+## The Gap: What Happens After IMPLEMENT
+
+The pipeline gets you to code that passes tests. But between "tests pass" and "safe to share," Signal exposed a missing phase:
+
+### Acceptance Hardening (Not Yet Formalized)
+
+After Maestro's autonomous build, a human ran the system end-to-end and discovered what the spec missed:
+
+| What Maestro Built | What the Human Fixed |
+|--------------------|--------------------|
+| OTLP trace collection | OTLP HTTP/gRPC protocol mismatch |
+| Docker Compose config | Vector health port conflicts |
+| Test suites | Test isolation failures across features |
+| Grafana provisioning | Datasource URL configuration |
+| — | Session-scoped tracing (emergent feature) |
+| — | Visual hierarchy logging (emergent feature) |
+| — | Multi-tool span correlation (emergent feature) |
+
+**The 80/20 split:**
+
+| Who | Commits | Lines | Nature of Work |
+|-----|---------|-------|----------------|
+| **Maestro** | 255 | ~25,500 | Autonomous feature implementation from spec |
+| **Human** | 11 | ~9,800 | Integration fixes, infrastructure gaps, emergent features |
+
+Maestro builds what the spec says. The human discovers what the spec missed by actually running the system. This acceptance hardening step — run end-to-end, verify integration points, check non-functional behavior, add emergent requirements — should become a formal SpecFlow phase. It's the bridge between "tests pass" and "ready for Contrib Prep."
+
+### The HITL Speed Problem
+
+The bottleneck isn't the agents — it's the human's ability to review, decide, and direct at the speed agents produce. Tools like [Vibe Kanban](https://github.com/BloopAI/vibe-kanban) (task orchestration across multiple agents) and Maestro (playbook-driven auto-run) are on the same trajectory: making the human effective as a 10x operator by structuring agent output for rapid human review rather than requiring line-by-line reading.
+
+This motivates the entire lifecycle extension — layering automated gates, structured playbooks, and community review so the human makes high-leverage decisions. See [SpecFlow Lifecycle Extension](../projects/specflow-lifecycle/) for the full roadmap.
+
+### Where This Pipeline Ends, the Next Phase Begins
+
+```
+THIS SOP                                    NEXT SOPs
+────────                                    ─────────
+SPECIFY → PLAN → IMPLEMENT → [HARDEN]  →   Contrib Prep → Review → Release → Evolve
+                                ▲
+                                │
+                        Not yet formalized
+                        (Signal proved it's needed)
+```
+
+After the build pipeline completes, the output is tested code on a feature branch. The next step is [Contribution Preparation](contribution-protocol.md) — extracting that code from your private trunk for public collaboration.
+
+---
 
 ## Quality Gates
 
@@ -111,9 +162,11 @@ The system SHALL emit structured JSONL events for all hook lifecycle events.
 | One Test File = TDD | Missing coverage, false confidence | Task-level test verification |
 | Skip Quality Gate | Bad architecture propagates to implementation | Score threshold blocks advancement |
 | Init and Abandon | Half-built features | Loop enforcement — must complete or explicitly fail |
+| Ship Without Hardening | Integration gaps, missing emergent features | Acceptance hardening phase (not yet formalized) |
 
 ## References
 
 - [SpecFlow Bundle](https://github.com/jcfischer/specflow-bundle) — Jens-Christian Fischer
 - [Maestro PAI Playbooks](https://github.com/mellanon/maestro-pai-playbooks) — playbook implementations
 - [Maestro](https://runmaestro.ai/) — multi-agent orchestration platform
+- [PAI Signal](../projects/signal/) — first project through this pipeline (25k lines, 708 tests)

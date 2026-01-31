@@ -66,6 +66,7 @@ Each phase in the lifecycle can be supported by four layers of tooling. Today, c
 | Phase | Process Doc | Maestro Playbook | PAI Skill | External Tools |
 |-------|:-----------:|:----------------:|:---------:|:--------------:|
 | **1. Build** | ✅ [SOP](specflow-development-pipeline.md) | ✅ `SpecFlow_Development` | — | — |
+| **1b. Harden** | ⚠️ Described in Build SOP | ❌ Not yet formalized | — | — |
 | **2. Contrib Prep** | ✅ [SOP](contribution-protocol.md) | ❌ Needs playbook | ❌ Needs `bin/contrib/` | — |
 | **3. Review** | ✅ [SOP](review-format.md) | ⚠️ `PR_Review` exists (covers Layer 2 only) | ❌ Needs `bin/review/` | ⚠️ BugBot, Greptile available but not integrated |
 | **4. Release** | ✅ [SOP](specfirst-release-process.md) | ❌ Needs playbook | ❌ Needs `bin/release/` | — |
