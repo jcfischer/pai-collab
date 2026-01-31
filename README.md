@@ -4,7 +4,7 @@
 
 A shared coordination space where PAI community members collaborate on projects using their own agents. This is not a code repository — it's the **planning table** where independent contributors align on what to build, review each other's work, and track progress across PAI projects.
 
-![The PAI Blackboard — Community collaboration through shared knowledge](assets/pai-blackboard-collaboration.png)
+![The PAI Blackboard — Community collaboration through shared knowledge](assets/pai-collab-blackboard.png)
 
 ---
 
