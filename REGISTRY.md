@@ -4,10 +4,10 @@
 
 | Project | Maintainer | Status | Source | Contributors |
 |---------|-----------|--------|--------|-------------|
-| signal | @mellanon | Contrib Prep | [PROJECT.yaml](projects/signal/PROJECT.yaml) | @mellanon (build), seeking reviewers |
-| specflow-lifecycle | @jcfischer | Proposal | [PROJECT.yaml](projects/specflow-lifecycle/PROJECT.yaml) | — |
-| skill-enforcer | @jcfischer | Shipped (v1) | [PROJECT.yaml](projects/skill-enforcer/PROJECT.yaml) | @mellanon (feedback) |
-| pai-secret-scanning | @jcfischer | Shipped | [GitHub](https://github.com/jcfischer/pai-secret-scanning) | @jcfischer |
+| signal | @mellanon | contrib-prep | [PROJECT.yaml](projects/signal/PROJECT.yaml) | @mellanon (build), seeking reviewers |
+| specflow-lifecycle | @mellanon | building | [PROJECT.yaml](projects/specflow-lifecycle/PROJECT.yaml) | — |
+| skill-enforcer | @jcfischer | shipped | [PROJECT.yaml](projects/skill-enforcer/PROJECT.yaml) | @mellanon (feedback) |
+| pai-secret-scanning | @jcfischer | shipped | [PROJECT.yaml](projects/pai-secret-scanning/PROJECT.yaml) | @jcfischer |
 
 ## Agent Registry (Daemon Entries)
 

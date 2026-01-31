@@ -137,6 +137,140 @@ contributors:
 
 ---
 
+## JOURNAL.md Schema
+
+Every project directory should include a `JOURNAL.md`. This is the narrative log of what happened — not a task list, but a story of decisions, discoveries, and emergent insights.
+
+### Structure
+
+- **Header**: Title, maintainer, brief description of the log's purpose
+- **Entries**: Reverse chronological (newest at top), append-only, self-contained blocks
+
+### Entry Format
+
+```markdown
+## YYYY-MM-DD — Title
+
+**Author:** @handle (agent: name)
+**Phase:** Specify | Build | Harden | Contrib Prep | Review | Release | Evolve
+**Status:** What changed (one line)
+
+### What Happened
+- Factual account of actions taken, decisions made, issues created/closed
+
+### What Emerged
+- Insights, patterns, surprises — things you didn't plan for but discovered
+
+---
+```
+
+### Rules
+
+- **Phase** values match the lifecycle: Specify, Build, Harden, Contrib Prep, Review, Release, Evolve
+- **What Happened** is factual — what was done, what was decided
+- **What Emerged** is reflective — insights that inform future work
+- Each entry must be self-contained — a reader should understand it without reading other entries
+- Include issue references (`#N`) and PR references when relevant
+- Standalone tools may have a minimal journal; coordinated projects will accumulate entries over time
+
+---
+
+## Project README.md — Minimum Content
+
+Every project directory must include a `README.md`. The depth varies by project type, but all READMEs must cover a minimum set of sections.
+
+### Required Sections (All Projects)
+
+| Section | What It Contains |
+|---------|-----------------|
+| **Title + one-line description** | What this project is, in one sentence |
+| **Maintainer + source** | Who maintains it, where the code lives |
+| **Status** | Current lifecycle phase (must match PROJECT.yaml `status`) |
+| **What It Does** | What the project delivers — capabilities, features, or outcomes |
+| **Where It Fits** | How this project relates to the broader PAI ecosystem or lifecycle |
+| **Project Files** | Table listing PROJECT.yaml, JOURNAL.md, and other project artifacts |
+
+### Additional Sections (Coordinated Projects)
+
+Coordinated projects (e.g., Signal, specflow-lifecycle) should also include:
+
+| Section | What It Contains |
+|---------|-----------------|
+| **Architecture / Design** | How the project is structured, key technical decisions |
+| **Current State** | Table showing phase-by-phase progress |
+| **Success Criteria** | What "done" looks like — measurable outcomes |
+| **How It Was Built** | Build methodology, tools used, effort breakdown |
+| **Key Challenges** | What makes this project hard, what reviewers should focus on |
+| **References** | External links — specs, playbooks, upstream repos |
+
+### Examples
+
+- **Minimal** (standalone tool): [pai-secret-scanning](projects/pai-secret-scanning/README.md)
+- **Comprehensive** (coordinated project): [Signal](projects/signal/README.md), [specflow-lifecycle](projects/specflow-lifecycle/README.md)
+
+---
+
+## REGISTRY.md Entry Format
+
+[REGISTRY.md](REGISTRY.md) is the human-readable index of all projects and agents. `PROJECT.yaml` is the machine-readable source of truth — REGISTRY.md must stay aligned.
+
+### Active Projects Table
+
+| Column | Required | Description |
+|--------|----------|-------------|
+| **Project** | Yes | Project name, linked to `projects/*/PROJECT.yaml` |
+| **Maintainer** | Yes | GitHub handle, must match PROJECT.yaml `maintainer` |
+| **Status** | Yes | Lifecycle phase, must match PROJECT.yaml `status` |
+| **Source** | Yes | Link to `PROJECT.yaml` (not directly to GitHub repo) |
+| **Contributors** | Yes | Active contributors and their roles |
+
+**Convention:** Status values in REGISTRY.md must use the canonical lifecycle values from PROJECT.yaml: `proposed`, `building`, `hardening`, `contrib-prep`, `review`, `shipped`, `evolving`.
+
+### Agent Registry Table
+
+| Column | Required | Description |
+|--------|----------|-------------|
+| **Agent** | Yes | Agent name (the named AI assistant) |
+| **Operator** | Yes | GitHub handle of the human operator |
+| **Platform** | Yes | What platform the agent runs on (e.g., PAI + Maestro, PAI + Claude Code) |
+| **Skills** | Yes | Key capabilities or domain expertise |
+| **Availability** | Yes | `open` (accepting collaboration), `busy`, `offline` |
+| **Current Work** | Yes | What the agent is currently focused on |
+
+---
+
+## SOP Format Guide
+
+Standard operating procedures in `sops/` follow a consistent structure so contributors know what to expect.
+
+### Required Sections
+
+| Section | What It Contains |
+|---------|-----------------|
+| **Title** | `# SOP: [Name]` |
+| **Opening line** | One sentence: what this SOP covers |
+| **Why This Exists** | Why this procedure is needed — the problem it solves |
+| **Pipeline** | ASCII diagram showing the high-level flow (e.g., `STEP1 → STEP2 → STEP3`) |
+| **Steps** | Numbered, detailed steps with checklists where appropriate |
+| **References** | Links to related SOPs, policy documents, and external resources |
+
+### Optional Sections
+
+| Section | When to Include |
+|---------|----------------|
+| **Three Concerns** | When the SOP is part of a larger sequence (show what this SOP covers vs adjacent SOPs) |
+| **Worked Example** | When the SOP has been used in practice — show a real case |
+| **Tooling** | When automation exists for some steps (playbooks, skills, external tools) |
+
+### Cross-Reference Convention
+
+Every SOP should reference:
+- Related SOPs in the sequence
+- `TRUST-MODEL.md` if trust zones affect the procedure
+- `CLAUDE.md` if agents need to follow the procedure automatically
+
+---
+
 ## Access Model
 
 - **Contributors** can do anything via fork + PR. Low barrier.

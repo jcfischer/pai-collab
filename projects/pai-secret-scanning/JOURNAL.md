@@ -6,6 +6,29 @@ A structured, append-only log of what happened on this project. New entries go a
 
 ---
 
+## 2026-01-31 — All Artifact Schemas Documented
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** All artifact schemas documented in CONTRIBUTING.md, REGISTRY.md staleness fixed (closes #23)
+
+### What Happened
+- Scanned all 26 files in pai-collab for undocumented artifact schemas — found 5 gaps
+- Documented four additional schemas in CONTRIBUTING.md alongside PROJECT.yaml:
+  - JOURNAL.md: entry format (date, author, phase, what happened, what emerged), rules for phase values and self-contained entries
+  - Project README.md: required sections (all projects) and additional sections (coordinated projects), with examples
+  - REGISTRY.md entries: Active Projects and Agent Registry table schemas, convention that status must match PROJECT.yaml
+  - SOP format: required sections (title, why, pipeline, steps, references), optional sections, cross-reference convention
+- Fixed REGISTRY.md staleness: pai-secret-scanning now links to PROJECT.yaml (not GitHub), specflow-lifecycle status corrected from "Proposal" to "building", all status values aligned to canonical lifecycle values
+- CLAUDE.md self-alignment check passed — no updates needed
+
+### What Emerged
+- CONTRIBUTING.md is becoming the single reference for "how to create anything in pai-collab" — PROJECT.yaml schema, JOURNAL.md format, README requirements, REGISTRY.md entries, and SOP structure all documented in one place
+- The staleness in REGISTRY.md (specflow-lifecycle as "Proposal" when PROJECT.yaml said "building") shows why schema enforcement matters — without documented conventions, drift is inevitable
+- Convention established: REGISTRY.md is the human-readable index, PROJECT.yaml is the machine-readable source of truth. Status must match.
+
+---
+
 ## 2026-01-31 — PROJECT.yaml Schema Defined and All Files Aligned
 
 **Author:** @mellanon (agent: Luna)
