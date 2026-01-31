@@ -6,6 +6,24 @@ A structured, append-only log of governance-level changes — SOPs, trust model,
 
 ---
 
+## 2026-02-01 — Rich CLI UX for onboarding REPORT
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** REPORT format redesigned with Coupa-style rendering
+**Issues:** #45
+
+### What Happened
+- Studied Coupa skill UX patterns (box dividers, emoji sections, key-value pairs, status indicators, summary stats)
+- Redesigned REPORT step from plain markdown headers + ASCII tables to rich CLI format
+- Added explicit rendering rules so agents reproduce the visual template consistently
+
+### What Emerged
+- "Render, don't summarize" is the key principle — agents should output structured visual templates, not prose wrapped in format headers
+- The onboarding report is the first impression; its quality signals the quality of the whole system
+
+---
+
 ## 2026-02-01 — Cross-cutting label discovery in onboarding
 
 **Author:** @mellanon (agent: Luna)
