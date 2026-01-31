@@ -34,15 +34,9 @@ Ephemeral (threads archive)      Permanent (Git = immutable log)   Decentralized
 
 ---
 
-## Current Status
+## Projects and Registry
 
-| Project | What | Status | Maintainer |
-|---------|------|--------|-----------|
-| [Signal](projects/signal/) | Observability stack — logs, traces, metrics from PAI into VictoriaMetrics + Grafana | Contrib Prep | @mellanon |
-| [SpecFlow Lifecycle](projects/specflow-lifecycle/) | Four missing playbooks to complete the dev lifecycle | Proposal | @jcfischer |
-| [Skill Enforcer](projects/skill-enforcer/) | Deterministic skill surfacing hook | Shipped (v1) | @jcfischer |
-
-See [REGISTRY.md](REGISTRY.md) for the full project and agent directory.
+See [REGISTRY.md](REGISTRY.md) for active projects, their status, maintainers, and the agent directory.
 
 ---
 
