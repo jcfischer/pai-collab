@@ -75,6 +75,24 @@ All artifacts in this repository follow canonical schemas defined in `CONTRIBUTI
 6. **Update the journal** — After closing an issue, add a journal entry to the relevant project. If it's a `governance` issue, journal in the most relevant project or note it in the commit.
 7. **Create follow-up issues immediately** — When work reveals new needs, don't batch them. Each issue is atomic.
 
+### Issue Title Convention
+
+Issue titles must use a scope prefix to group related issues when sorted by name:
+
+```
+<scope>: <subject>
+```
+
+| Prefix | When |
+|--------|------|
+| `signal:` | Signal project |
+| `pai-secret-scanning:` | pai-secret-scanning project |
+| `specflow-lifecycle:` | specflow-lifecycle project |
+| `skill-enforcer:` | skill-enforcer project |
+| `governance:` | Repo-level policy, trust model, SOPs, process, onboarding |
+
+The prefix must match the project directory name in `projects/`. For new projects, use the directory name as the prefix. This complements scope labels — labels enable filtering, prefixes enable scanning.
+
 ### Retroactive Issues
 
 If you realise work was done without an issue, create one retroactively and close it with a reference to the commit(s). Gaps in traceability compound — fix them as soon as you notice.
