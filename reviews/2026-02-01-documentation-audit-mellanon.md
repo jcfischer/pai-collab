@@ -119,7 +119,7 @@
 ### #12 — `expertise-needed` not in label taxonomy
 **File:** CLAUDE.md
 **Issue:** Label was created and used in requesting-collaboration SOP but not documented in CLAUDE.md's label taxonomy.
-**Resolution:** ✅ Fixed. Added to Collaboration category.
+**Resolution:** ✅ Fixed then superseded. Label was added to Collaboration category, then later removed — consolidated to `seeking-contributors` as the single label for all help requests. `expertise-needed` label deleted from GitHub.
 **Commit:** `a2525c0`
 
 ### #13 — CONTRIBUTING.md missing CLAUDE.md reference

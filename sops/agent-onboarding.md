@@ -196,7 +196,7 @@ After completing steps 1–5, **render** (don't summarize) the following report 
 
   Request help:
     "I need a reviewer for my work" → sops/requesting-collaboration.md
-    "I need domain expertise" → Label issue with expertise-needed + seeking-contributors
+    "I need domain expertise" → Label issue with seeking-contributors
     "I want a second opinion" → sops/requesting-collaboration.md
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━

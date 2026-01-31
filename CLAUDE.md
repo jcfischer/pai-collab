@@ -109,11 +109,11 @@ Every issue must have labels from these categories:
 | **Type** | `type/task`, `type/idea`, `type/review`, `type/tooling`, `type/governance` | What kind of work |
 | **Priority** | `P1-high`, `P2-medium`, `P3-low` | When to do it |
 | **Cross-cutting** | `security`, `trust`, `upstream-contribution`, `seeking-contributors` | Functional tags |
-| **Collaboration** | `parallel-review`, `competing-proposals`, `expertise-needed` | Multiple contributors sought on the same topic |
+| **Collaboration** | `parallel-review`, `competing-proposals` | Multiple contributors sought on the same topic |
 
 - Every issue needs at least one **scope** label — this links the issue to the repo structure
 - `governance` is for repo-level policy, trust model, SOPs, and process — not tied to a single project
-- `seeking-contributors` is a signal label (listed under Cross-cutting) that pairs with Collaboration labels to compose requests. It marks issues open to new contributors — use alongside `parallel-review`, `competing-proposals`, or `expertise-needed` to specify what kind of help is needed
+- `seeking-contributors` is the primary label for requesting any kind of help — reviews, expertise, implementation, second opinions. Use it alone or alongside `parallel-review` or `competing-proposals` to specify the collaboration pattern
 - `parallel-review` invites multiple independent reviews — reviewers submit separately, maintainer synthesizes
 - `competing-proposals` invites multiple approaches to the same problem — propose your solution, maintainer selects or merges
 
@@ -187,7 +187,7 @@ After any policy change, add a journal entry in the most relevant project explai
 
 If you encounter a gap during work — need a security reviewer, domain expertise, a second opinion, or implementation help — follow `sops/requesting-collaboration.md`:
 
-1. **Label the issue** — Add `seeking-contributors` + specific need label (`parallel-review`, `competing-proposals`, or `expertise-needed`)
+1. **Label the issue** — Add `seeking-contributors` (optionally with `parallel-review` or `competing-proposals` for specific patterns)
 2. **Scope the request** — Update the issue with: what you need, what the helper needs to know, expected deliverable
 3. **Draft a Discord broadcast** for the maintainer:
    ```

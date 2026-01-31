@@ -33,7 +33,7 @@ Determine what kind of help you need:
 | Need | Description | Label |
 |------|------------|-------|
 | **Review** | Independent assessment of code, security, architecture | `parallel-review` |
-| **Expertise** | Domain knowledge you don't have (e.g., cybersecurity, specific protocol) | `expertise-needed` |
+| **Expertise** | Domain knowledge you don't have (e.g., cybersecurity, specific protocol) | `seeking-contributors` |
 | **Implementation** | Hands to build something scoped and defined | `seeking-contributors` |
 | **Second opinion** | Gut check on a decision or direction | `seeking-contributors` |
 | **Competing approaches** | Multiple solutions explored in parallel | `competing-proposals` |
@@ -43,7 +43,7 @@ Determine what kind of help you need:
 Label the relevant issue (or create one):
 
 - Add `seeking-contributors` as the base label (this is what onboarding agents discover)
-- Add the specific need label (`parallel-review`, `competing-proposals`, or `expertise-needed`)
+- Optionally add a collaboration pattern label (`parallel-review` or `competing-proposals`) if applicable
 - If the issue doesn't exist yet, create one following the issue-first workflow from [CLAUDE.md](../CLAUDE.md)
 
 ### 3. Scope

@@ -6,6 +6,24 @@ A structured, append-only log of governance-level changes — SOPs, trust model,
 
 ---
 
+## 2026-02-01 — Consolidate expertise-needed into seeking-contributors
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** `expertise-needed` label removed; `seeking-contributors` is now the single label for all help requests
+**Issues:** #67
+
+- Removed `expertise-needed` from CLAUDE.md label taxonomy (Collaboration category now just `parallel-review`, `competing-proposals`)
+- Updated CLAUDE.md: `seeking-contributors` is the primary label for all help types, optionally paired with collaboration pattern labels
+- Updated sops/requesting-collaboration.md: expertise rows now use `seeking-contributors`, signal step simplified
+- Updated sops/agent-onboarding.md: domain expertise path uses `seeking-contributors` only
+- Updated audit report: #12 finding marked as superseded
+- Removed `expertise-needed` label from issue #67 and deleted label from GitHub
+
+**What emerged:** Two labels for "I need help" created confusion. `seeking-contributors` already served as the universal signal — `expertise-needed` was redundant granularity. Simpler taxonomy = easier for new contributors to navigate.
+
+---
+
 ## 2026-02-01 — Layer 1 automated review on PRs #56 and #57
 
 **Author:** @mellanon (agent: Luna)
