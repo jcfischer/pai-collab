@@ -88,29 +88,77 @@ Consider two paths — contributing to existing work, or proposing something new
 
 ### 6. REPORT
 
-After completing steps 1–5, report back to your operator using this structure:
-
-**1. Projects** — For each project, include: name, phase, maintainer, and a one-line description (from STATUS.md or the project README). Example:
+After completing steps 1–5, **render** (don't summarize) the following report for your operator. Use this exact visual format — box dividers, emoji sections, key-value pairs. No ASCII tables.
 
 ```
-signal (contrib-prep) — @mellanon
-  Observability stack for PAI — metrics, traces, and dashboards.
-  Open: #1 contrib prep, #2 review, #3 submit PR
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📋 ONBOARDING REPORT │ pai-collab
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 
-pai-secret-scanning (shipped) — @jcfischer
-  Pre-commit secret scanning — Layers 1–2 of the trust model.
-  Open: #13 CI gate investigation
+📦 PROJECTS
+
+  signal (contrib-prep) — @mellanon
+    Observability stack for PAI — metrics, traces, and dashboards.
+    Open: #1 contrib prep, #2 review, #3 submit PR
+    Tags: security, trust, upstream-contribution
+
+  pai-secret-scanning (shipped) — @jcfischer
+    Pre-commit secret scanning — Layers 1–2 of the trust model.
+    Open: #13 CI gate investigation
+
+  specflow-lifecycle (building) — @mellanon
+    Extending SpecFlow bundle with full lifecycle playbooks.
+    Open: #4 align with jcfischer, #5-#8 playbooks
+
+  skill-enforcer (shipped) — @jcfischer
+    Validates skill structure against PAI conventions.
+    No open issues.
+
+🏛️ GOVERNANCE
+
+  Trust model:    3 zones, 6 defense layers, 3 threat vectors
+  SOPs:           6 operational procedures
+  Agent protocol: Issue-first workflow, journaling, schema compliance
+  ⚠️ Open: #24 — External review of trust model (seeking-contributors)
+
+👥 CONTRIBUTORS
+
+  @mellanon  maintainer  Luna  → signal, specflow-lifecycle
+  @jcfischer trusted     Ivy   → pai-secret-scanning, skill-enforcer
+
+📈 RECENT ACTIVITY
+
+  [Summary from journals and recently closed issues — momentum assessment]
+
+🎯 CONTRIBUTION OPPORTUNITIES
+
+  seeking-contributors:
+    #24 — External review of trust model and governance framework
+
+  Cross-cutting (security/trust/upstream):
+    #16 — LoadContext hook scanning (security, upstream-contribution)
+    #17 — Review mode tool restrictions (security, upstream-contribution)
+    #18 — Audit logging for external content (security)
+
+  Our assessment:
+    [Where you could contribute based on skills, or what you'd propose]
+
+❓ QUESTIONS
+
+  [Anything you need clarified before picking up work or proposing ideas]
+
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+📊 4 projects │ 2 contributors │ 12 open issues │ 1 seeking contributors
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
-**2. Governance** — Summarise the governance areas from STATUS.md. List open governance issues.
-
-**3. Contributors** — Who's active, what trust zone, which agent.
-
-**4. Recent activity** — From journals and recently closed issues. What's the momentum?
-
-**5. Contribution opportunities** — Issues labelled `seeking-contributors`, plus cross-cutting issues (`security`, `trust`, `upstream-contribution`) that match your skills. Include your assessment of where you could contribute or what you could propose.
-
-**6. Questions** — Anything you need clarified before picking up work or proposing ideas.
+**Rendering rules:**
+- Use the exact visual structure above — box dividers (━━━), emoji section headers, indented key-value pairs
+- No markdown tables — use indented text blocks
+- Projects: name (phase) — @maintainer, one-line description, open issues, relevant cross-cutting tags
+- Contributors: one line each — handle, zone, agent, active projects
+- Summary stats line at bottom with pipe separators
+- Replace bracketed `[placeholders]` with actual data from your scan
 
 **Wait for your operator's decision before proceeding.** The operator chooses whether to contribute to existing work, propose something new, or both.
 
