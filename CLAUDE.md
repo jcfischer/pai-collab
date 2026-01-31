@@ -21,32 +21,37 @@ You are working in pai-collab, a shared blackboard for PAI community collaborati
 
 ---
 
-## Journaling Protocol
+## Artifact Schemas (MANDATORY)
 
-**After every commit that changes project files**, update that project's `JOURNAL.md`:
-- Add a new entry at the top (reverse chronological)
-- Follow the existing format: date, author, phase, status, what happened, what emerged
-- Include issue references and what follow-up was created
-- If a commit spans multiple projects, update each project's journal
+All artifacts in this repository follow canonical schemas defined in `CONTRIBUTING.md`. When creating or modifying any artifact, follow the schema exactly.
 
-**After actioning an issue**, add a journal entry documenting what happened and what emerged — not just the change, but the reasoning and any insights.
+| Artifact | Schema Location | Triggers for Update |
+|----------|----------------|-------------------|
+| `PROJECT.yaml` | CONTRIBUTING.md → "PROJECT.yaml Schema" | Creating a new project, changing project status, adding contributors |
+| `JOURNAL.md` | CONTRIBUTING.md → "JOURNAL.md Schema" | After every commit that changes project files, after actioning an issue |
+| Project `README.md` | CONTRIBUTING.md → "Project README.md — Minimum Content" | Creating a new project, significant project milestone |
+| `REGISTRY.md` entries | CONTRIBUTING.md → "REGISTRY.md Entry Format" | New project registered, project status changes, new agent joins |
+| `CONTRIBUTORS.yaml` | TRUST-MODEL.md → "Two-Level Scoping" | New contributor promoted, trust zone changed |
+| SOPs | CONTRIBUTING.md → "SOP Format Guide" | Creating or modifying an SOP |
 
-**Journal entry template:**
-```markdown
-## YYYY-MM-DD — Title
-
-**Author:** @handle (agent: name)
-**Phase:** Specify | Build | Harden | Contrib Prep | Review | Release | Evolve
-**Status:** What changed
-
-### What Happened
-- ...
-
-### What Emerged
-- ...
+**Key rules:**
+- `PROJECT.yaml` status must use canonical lifecycle values: `proposed`, `building`, `hardening`, `contrib-prep`, `review`, `shipped`, `evolving`
+- `REGISTRY.md` status must match `PROJECT.yaml` status — REGISTRY.md is the index, PROJECT.yaml is the source of truth
+- `JOURNAL.md` phase values must match the lifecycle: Specify, Build, Harden, Contrib Prep, Review, Release, Evolve
+- When a project's status changes, update both `PROJECT.yaml` AND `REGISTRY.md` in the same commit
 
 ---
-```
+
+## Journaling Protocol
+
+**After every commit that changes project files**, update that project's `JOURNAL.md` following the schema in CONTRIBUTING.md:
+- Add a new entry at the top (reverse chronological)
+- Required fields: date, author, phase, status, what happened, what emerged
+- Include issue references and what follow-up was created
+- If a commit spans multiple projects, update each project's journal
+- Each entry must be self-contained — readable without context from other entries
+
+**After actioning an issue**, add a journal entry documenting what happened and what emerged — not just the change, but the reasoning and any insights.
 
 ---
 
@@ -120,14 +125,15 @@ After processing a PR or completing significant work:
 pai-collab/
 ├── CLAUDE.md              ← You are here (agent instructions)
 ├── TRUST-MODEL.md         ← Threat model, defense layers, trust zones
-├── CONTRIBUTING.md        ← How to contribute
-├── CONTRIBUTORS.yaml      ← Repo-level trust zones (when created)
-├── REGISTRY.md            ← Active projects and agents
+├── CONTRIBUTING.md        ← How to contribute + all artifact schemas
+├── CONTRIBUTORS.yaml      ← Repo-level trust zones
+├── REGISTRY.md            ← Active projects and agents (index, not source of truth)
 ├── BLACKBOARD-MODEL.md    ← How personal and shared blackboards connect
 ├── projects/              ← Project directories (README, PROJECT.yaml, JOURNAL)
 │   ├── signal/
 │   ├── specflow-lifecycle/
-│   └── pai-secret-scanning/
+│   ├── pai-secret-scanning/
+│   └── skill-enforcer/
 └── sops/                  ← Standard operating procedures
 ```
 
@@ -135,8 +141,10 @@ pai-collab/
 
 ## Key Principles
 
-1. **Journal everything** — If it's not journaled, it didn't happen
-2. **Issues are the work queue** — Create issues, action issues, close issues
-3. **Trust is earned** — All contributors start untrusted. Zones control authority, not immunity.
-4. **Policy changes cascade** — Check downstream documents when modifying policy
-5. **Transparency builds trust** — Announce significant work to the community
+1. **Follow the schemas** — Every artifact has a canonical schema in CONTRIBUTING.md. Follow it exactly.
+2. **Journal everything** — If it's not journaled, it didn't happen
+3. **Issues are the work queue** — Create issues, action issues, close issues
+4. **Keep artifacts in sync** — When status changes, update PROJECT.yaml AND REGISTRY.md together
+5. **Trust is earned** — All contributors start untrusted. Zones control authority, not immunity.
+6. **Policy changes cascade** — Check downstream documents when modifying policy
+7. **Transparency builds trust** — Announce significant work to the community

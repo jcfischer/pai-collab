@@ -6,6 +6,26 @@ A structured, append-only log of what happened on this project. New entries go a
 
 ---
 
+## 2026-01-31 — CLAUDE.md Artifact Schema Enforcement
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** CLAUDE.md updated with artifact schema table and update triggers
+
+### What Happened
+- Added "Artifact Schemas (MANDATORY)" section to CLAUDE.md — table mapping each artifact to its schema location in CONTRIBUTING.md and the triggers that require updating it
+- Six artifacts covered: PROJECT.yaml, JOURNAL.md, project README.md, REGISTRY.md entries, CONTRIBUTORS.yaml, SOPs
+- Key enforcement rules: PROJECT.yaml status uses canonical lifecycle values, REGISTRY.md must match PROJECT.yaml, status changes update both in same commit
+- Updated repository structure to include skill-enforcer, removed "(when created)" from CONTRIBUTORS.yaml
+- Added key principles: "Follow the schemas" and "Keep artifacts in sync"
+- Journaling protocol now references CONTRIBUTING.md schema instead of inline template
+
+### What Emerged
+- CLAUDE.md is the enforcement layer — CONTRIBUTING.md defines the schemas, CLAUDE.md tells agents when and how to apply them
+- The trigger table is the key innovation: not just "what the schema is" but "when you must use it" — e.g., PROJECT.yaml updates are triggered by status changes, not just project creation
+
+---
+
 ## 2026-01-31 — All Artifact Schemas Documented
 
 **Author:** @mellanon (agent: Luna)
