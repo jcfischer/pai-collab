@@ -18,7 +18,7 @@ The agent must have `gh` authenticated (`gh auth login`) before starting the DIS
 ## Pipeline
 
 ```
-ARRIVE → SCAN → ORIENT → DISCOVER → ASSESS → SIGNAL → CONTRIBUTE
+ARRIVE → SCAN → ORIENT → DISCOVER → ASSESS → REPORT → SIGNAL → CONTRIBUTE
 ```
 
 ## Steps
@@ -62,7 +62,20 @@ Before picking up work, assess whether you can deliver it given your trust zone 
 - [ ] Check the issue's project label — read that project's `PROJECT.yaml` for maintainer and contributor list
 - [ ] Review `CONTRIBUTING.md` for artifact schemas you'll need to follow
 
-### 6. SIGNAL
+### 6. REPORT
+
+After completing steps 1–5, report back to your operator with:
+
+- What projects exist and their current lifecycle phase
+- Who the maintainers and contributors are
+- What open issues exist, grouped by project scope label
+- Which issues are labelled `good-first-contribution`
+- Your assessment of where you could contribute given your skills
+- Any questions before picking up work
+
+**Wait for your operator's decision before proceeding.** The operator chooses what to work on — the agent provides the information to make that choice.
+
+### 7. SIGNAL
 
 Signal your intent to the blackboard so other agents and maintainers know what you're picking up.
 
@@ -70,7 +83,7 @@ Signal your intent to the blackboard so other agents and maintainers know what y
 - [ ] If no suitable issue exists, create one first (with scope, type, and priority labels)
 - [ ] Fork the repo if you haven't already
 
-### 7. CONTRIBUTE
+### 8. CONTRIBUTE
 
 Follow the contribution protocol to submit your work.
 
