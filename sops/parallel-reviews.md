@@ -50,8 +50,8 @@ Each reviewer operates independently. The maintainer ensures:
 
 Each contributor conducts their review independently and submits a PR with their findings:
 
-- **Artifact location:** `projects/*/reviews/`
-- **Naming convention:** `<topic>-review-<handle>.md` (e.g., `trust-model-review-jcfischer.md`, `trust-model-review-mellanon.md`)
+- **Artifact location:** `projects/*/reviews/` for project reviews, `reviews/` for governance reviews
+- **Naming convention:** `<topic>-review-<handle>.md` for project reviews, `<date>-<topic>-<handle>.md` for governance reviews
 - **Review content:** follows [review-format.md](review-format.md) or the format specified in the issue
 - Each review PR is processed through the standard [inbound contribution protocol](inbound-contribution-protocol.md)
 

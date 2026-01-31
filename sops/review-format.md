@@ -153,7 +153,8 @@ Read the PR diff. Understand what's being added, changed, or removed:
 
 Write structured findings using the template below. Submit as:
 - **PR comment** — for inline review feedback
-- **Review file** — for formal findings: `projects/<name>/reviews/<topic>-review-<handle>.md`
+- **Review file (project)** — for project findings: `projects/<name>/reviews/<topic>-review-<handle>.md`
+- **Review file (governance)** — for trust model, documentation, cross-project reviews: `reviews/<date>-<topic>-<handle>.md`
 
 ### 8. Gate
 

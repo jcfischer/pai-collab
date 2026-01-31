@@ -35,6 +35,7 @@ All artifacts in this repository follow canonical schemas defined in `CONTRIBUTI
 | `CONTRIBUTORS.yaml` | TRUST-MODEL.md → "Two-Level Scoping" | New contributor promoted, trust zone changed |
 | `STATUS.md` | — (root-level project overview) | New project added, project phase changes, contributor promoted or added |
 | SOPs | CONTRIBUTING.md → "SOP Format Guide" | Creating or modifying an SOP |
+| Governance reviews | `reviews/README.md` | Trust model audits, documentation audits, cross-project reviews |
 
 **Key rules:**
 - `PROJECT.yaml` status must use canonical lifecycle values: `proposed`, `building`, `hardening`, `contrib-prep`, `review`, `shipped`, `evolving`, `archived`
@@ -216,6 +217,7 @@ pai-collab/
 │   ├── specflow-lifecycle/
 │   ├── pai-secret-scanning/
 │   └── skill-enforcer/
+├── reviews/               ← Governance-level review artifacts (audits, cross-project reviews)
 └── sops/                  ← Standard operating procedures
 ```
 

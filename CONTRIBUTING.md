@@ -64,7 +64,8 @@ Not every contribution follows the same path. The blackboard supports several co
 | **Standalone tool** | `projects/` directory (lightweight — README.md + PROJECT.yaml) | Shipped utility that benefits the ecosystem (e.g., pai-secret-scanning) |
 | **Process improvement** | PR to `sops/` | SOP updates, playbook changes, workflow improvements |
 | **Idea or proposal** | GitHub issue with `type/idea` label | Concepts to explore before committing to a project |
-| **Review** | Findings in `projects/*/reviews/` via PR | Structured review of someone's contribution |
+| **Review (project)** | Findings in `projects/*/reviews/` via PR | Structured review of someone's contribution |
+| **Review (governance)** | Findings in `reviews/` via PR | Trust model audits, documentation audits, cross-project reviews |
 
 **Every project gets a `projects/` directory** — even standalone tools. This is how contributors discover what exists. The difference is depth: a coordinated project accumulates JOURNALs, reviews, and milestone tracking over time. A standalone tool may just need a README and a pointer to its source repo.
 
@@ -337,7 +338,8 @@ No write access needed. Everything flows through PRs. The maintainer layer keeps
 | **Source pointers** | `projects/*/PROJECT.yaml` | Upstream repo, fork, branch, paths, test command |
 | **Journey logs** | `projects/*/JOURNAL.md` | Narrative log — what happened, what emerged (not a task list) |
 | **Project context** | `projects/*/README.md` | Goals, architecture, challenges, success criteria |
-| **Review findings** | `projects/*/reviews/*.md` | Structured review output |
+| **Review findings (project)** | `projects/*/reviews/*.md` | Structured review of a specific project |
+| **Review findings (governance)** | `reviews/*.md` | Trust model audits, documentation audits, cross-project reviews |
 | **Living spec** | `projects/*/OPEN-SPEC.md` | Post-v1.0 evolution: baseline + change proposals |
 | **Shared processes** | `sops/*.md` | How we review, contribute, release |
 

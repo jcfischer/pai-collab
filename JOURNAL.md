@@ -6,6 +6,24 @@ A structured, append-only log of governance-level changes — SOPs, trust model,
 
 ---
 
+## 2026-02-01 — Add governance reviews directory structure
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** `reviews/` directory created at repo root for governance-level review artifacts
+**Issues:** #65
+
+- Created `reviews/` directory with README.md (naming convention, what belongs here)
+- Moved documentation audit report from issue #64 into `reviews/2026-02-01-documentation-audit-mellanon.md` as first governance review artifact
+- Updated CONTRIBUTING.md: "What Goes Where" table and "Types of Contributions" table now distinguish project reviews (`projects/*/reviews/`) from governance reviews (`reviews/`)
+- Updated CLAUDE.md: added `reviews/` to repository structure tree and artifact schemas table
+- Updated sops/review-format.md: report step now shows both project and governance artifact paths
+- Updated sops/parallel-reviews.md: artifact location and naming convention updated for governance scope
+
+**What emerged:** The gap was identified during #64 audit — governance-level review artifacts (trust model audits, documentation audits) had no canonical home. The trust model review from #24 was routed to `projects/signal/reviews/` despite being repo-wide. This directory fills that structural gap.
+
+---
+
 ## 2026-02-01 — Fix remaining audit findings + STATUS.md alignment validation
 
 **Author:** @mellanon (agent: Luna)
