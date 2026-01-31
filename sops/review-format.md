@@ -69,12 +69,13 @@ This playbook integrates into the SpecFlow pipeline — it runs after `SpecFlow_
 
 ## How to Review a Blackboard Project
 
-1. Read the project's `PROJECT.yaml` for source pointers
-2. Clone the contrib branch (not the feature branch)
-3. Run tests: use the `tests` field from PROJECT.yaml
-4. Review by layer (e.g., events → collection → storage → visualization)
-5. Write structured findings to `projects/<name>/reviews/<date>-review-<author>.md`
-6. Submit via PR to this repo
+1. **Check contributor trust zone** — Read `CONTRIBUTORS.yaml` (repo-level) and the project's `PROJECT.yaml` (project-level). Apply review intensity per [TRUST-MODEL.md](../TRUST-MODEL.md): untrusted contributors trigger full content scanning and tool restrictions; trusted contributors get standard review.
+2. Read the project's `PROJECT.yaml` for source pointers
+3. Clone the contrib branch (not the feature branch)
+4. Run tests: use the `tests` field from PROJECT.yaml
+5. Review by layer (e.g., events → collection → storage → visualization)
+6. Write structured findings to `projects/<name>/reviews/<date>-review-<author>.md`
+7. Submit via PR to this repo
 
 ## Review Output Template
 

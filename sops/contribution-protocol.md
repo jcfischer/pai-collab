@@ -100,6 +100,7 @@ git checkout signal-v1.0.0 -- Observability/ hooks/ToolUseInstrumentation.hook.t
 
 ## References
 
+- [TRUST-MODEL.md](../TRUST-MODEL.md) — Threat model, defense layers, and trust zones that govern all contributions
 - [SpecFirst Release Process](specfirst-release-process.md) — 8 mandatory approval gates
 - [Review Format](review-format.md) — independent review after contrib prep
 - [PAI Release Runbook](https://github.com/mellanon/PAI) — battle-tested workflow

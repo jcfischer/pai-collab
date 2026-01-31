@@ -6,6 +6,29 @@ A structured, append-only log of what happened on this project. New entries go a
 
 ---
 
+## 2026-01-31 — Agent Protocol, Two-Level Scoping, SOP Alignment
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** CLAUDE.md created (#21), TRUST-MODEL.md updated with two-level scoping, SOPs aligned with trust model
+
+### What Happened
+- Added two-level trust zone scoping to TRUST-MODEL.md: repo-level (CONTRIBUTORS.yaml) for overall trust, project-level (PROJECT.yaml) for project governance. A contributor can be maintainer of their project without elevated repo-level trust.
+- Added zero-trust framing: trust zones control authority (what you can decide), not immunity (what you skip). Nobody exempt from scanning.
+- Created CLAUDE.md (#21) — agent operating protocol for pai-collab: journaling protocol (after every commit, update JOURNAL.md), issue protocol, trust model compliance, SOP compliance, policy change protocol (check downstream impact when modifying policy docs)
+- Followed CLAUDE.md's own policy change protocol: reviewed all SOPs against TRUST-MODEL.md for alignment
+- Updated review-format.md — added trust zone check as step 1 of "How to Review a Blackboard Project"
+- Updated contribution-protocol.md — added TRUST-MODEL.md reference
+- Updated SOPs README — added TRUST-MODEL.md and CLAUDE.md cross-references
+- Created issue #20 for inbound contribution processing SOP — codifying the 8-step pattern from PR #12 (receive, review, council debate, decision, merge, follow-up issues, journal, announce)
+
+### What Emerged
+- CLAUDE.md creates a self-reinforcing system: it instructs agents to journal, and to check downstream impact when modifying policy — which itself is a journalable event
+- The policy change protocol is the key insight: when you change TRUST-MODEL.md, you must check whether SOPs, CONTRIBUTING.md, and CLAUDE.md need updating. This prevents documents from drifting out of alignment.
+- Two-level trust scoping resolves the "who governs what" question cleanly — Jens governs pai-secret-scanning but can't modify the trust model. Repo maintainers retain override authority.
+
+---
+
 ## 2026-01-31 — Three-Zone Trust Model: Maintainer as Distinct Level
 
 **Author:** @mellanon (agent: Luna)

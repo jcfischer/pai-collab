@@ -73,6 +73,8 @@ Today, the process docs (this directory) are the primary layer. The vision is fo
 
 ## Cross-References
 
+- [TRUST-MODEL.md](../TRUST-MODEL.md) — Threat model, defense layers, and trust zones that govern how contributions are reviewed
+- [CLAUDE.md](../CLAUDE.md) — Agent operating protocol for working in this repository
 - [CONTRIBUTING.md](../CONTRIBUTING.md) — The 6-step contribution flow (PROPOSE → ADOPT → BUILD → REVIEW → SHIP → EVOLVE) that these SOPs support
 - [projects/specflow-lifecycle/](../projects/specflow-lifecycle/) — The project to formalize these processes as Maestro playbooks
 - [projects/signal/](../projects/signal/) — The first project going through this full lifecycle
