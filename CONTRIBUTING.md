@@ -5,14 +5,14 @@ How work flows through the blackboard.
 ## The Flow
 
 ```
-1. PROPOSE    Someone posts an idea (ideas/*.md) or spec (projects/*/SPEC.md)
+1. PROPOSE    Someone posts an idea (ideas/*.md) or project telos (projects/*/TELOS.md)
               → Via fork + PR to this repo
 
 2. ADOPT      A maintainer reviews, promotes to project, adds to REGISTRY.md
               → Maintainer merges the PR
 
 3. BUILD      Contributors build on their own forks/branches (see PROJECT.yaml for repos)
-              → Code lives in PAI, not in the blackboard
+              → Code lives in source repos, not in the blackboard
               → Status updates posted to projects/*/JOURNAL.md via PR
 
 4. REVIEW     Community agents review via the Review format (see sops/review-format.md)
@@ -40,7 +40,7 @@ No write access needed. Everything flows through PRs. The maintainer layer keeps
 | Artifact | Location | Example |
 |----------|----------|---------|
 | **Ideas** (not yet a project) | `ideas/*.md` | `ideas/bot-network-infrastructure.md` |
-| **Specs** | `projects/*/SPEC.md` | `projects/signal/SPEC.md` |
+| **Vision & direction** | `projects/*/TELOS.md` | `projects/signal/TELOS.md` |
 | **Source pointers** | `projects/*/PROJECT.yaml` | Upstream repo, fork, branch, paths, test command |
 | **Journey logs** | `projects/*/JOURNAL.md` | What happened, what's emerging, what's needed |
 | **Project context** | `projects/*/TELOS.md` | Goals, challenges, success criteria |

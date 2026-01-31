@@ -141,16 +141,3 @@ The review pipeline (automated gates + Maestro PR_Review playbook + community ag
 | Tests | `bun test` |
 | Playbooks | [maestro-pai-playbooks](https://github.com/mellanon/maestro-pai-playbooks) |
 
----
-
-## Discord Origin
-
-> A bit of an unpolished screen recording, but you get the idea (watch in 2x).
->
-> I am shipping logs, traces, and metrics time series data from PAI into an observability stack. I am using OrbStack Docker and Vector Collector to push data from PAI into the Victoria observability stack.
->
-> A large part of this was implemented using Maestro playbooks, with Claude Code, PAI, and SpecFlow working together. It is a quite a robust development process, but felt a bit slow. I got a little impatient towards the end and took the reins myself. It took some careful steering to get the data structures right after Maestro handed over the work, but the data is now flowing end to end. I have also stood up a few example dashboards to show how different time series data types can work together to paint a coherent picture.
->
-> Happy to share my work if there is interest.
->
-> *— Andreas, PAI Signal Requirements Discord Thread, Jan 2026*
