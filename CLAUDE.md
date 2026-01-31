@@ -151,6 +151,8 @@ Follow the standard operating procedures in `sops/`:
 | When | SOP |
 |------|-----|
 | Processing an external PR | `sops/inbound-contribution-protocol.md` |
+| Inviting multiple independent reviews | `sops/parallel-reviews.md` |
+| Inviting competing approaches | `sops/competing-proposals.md` |
 | Preparing code to share | `sops/contribution-protocol.md` |
 | Reviewing contributions | `sops/review-format.md` |
 | Building features | `sops/specflow-development-pipeline.md` |
