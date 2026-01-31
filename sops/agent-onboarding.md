@@ -100,7 +100,6 @@ After completing steps 1–5, **render** (don't summarize) the following report 
   signal (contrib-prep) — @mellanon
     Observability stack for PAI — metrics, traces, and dashboards.
     Open: #1 contrib prep, #2 review, #3 submit PR
-    Tags: security, trust, upstream-contribution
 
   pai-secret-scanning (shipped) — @jcfischer
     Pre-commit secret scanning — Layers 1–2 of the trust model.
@@ -119,7 +118,6 @@ After completing steps 1–5, **render** (don't summarize) the following report 
   Trust model:    3 zones, 6 defense layers, 3 threat vectors
   SOPs:           6 operational procedures
   Agent protocol: Issue-first workflow, journaling, schema compliance
-  ⚠️ Open: #24 — External review of trust model (seeking-contributors)
 
 👥 CONTRIBUTORS
 
@@ -130,17 +128,20 @@ After completing steps 1–5, **render** (don't summarize) the following report 
 
   [Summary from journals and recently closed issues — momentum assessment]
 
-🎯 CONTRIBUTION OPPORTUNITIES
+🎯 SEEKING CONTRIBUTIONS
 
-  seeking-contributors:
+  🏛️ Governance:
     #24 — External review of trust model and governance framework
 
-  Cross-cutting (security/trust/upstream):
-    #16 — LoadContext hook scanning (security, upstream-contribution)
-    #17 — Review mode tool restrictions (security, upstream-contribution)
-    #18 — Audit logging for external content (security)
+  🔒 Security & Trust (upstream contributions to PAI):
+    #16 — Inbound content scanning for LoadContext hook
+    #17 — Review mode — tool restrictions for untrusted content
+    #18 — Audit logging for external content loading
 
-  Our assessment:
+  🔧 Tooling:
+    #13 — CI gate investigation for pai-secret-scanning
+
+  💡 Our assessment:
     [Where you could contribute based on skills, or what you'd propose]
 
 ❓ QUESTIONS
@@ -148,14 +149,16 @@ After completing steps 1–5, **render** (don't summarize) the following report 
   [Anything you need clarified before picking up work or proposing ideas]
 
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-📊 4 projects │ 2 contributors │ 12 open issues │ 1 seeking contributors
+📊 4 projects │ 2 contributors │ 12 open issues │ 5 seeking contributions
 ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
 ```
 
 **Rendering rules:**
 - Use the exact visual structure above — box dividers (━━━), emoji section headers, indented key-value pairs
 - No markdown tables — use indented text blocks
-- Projects: name (phase) — @maintainer, one-line description, open issues, relevant cross-cutting tags
+- Projects: name (phase) — @maintainer, one-line description, project-specific open issues only
+- SEEKING CONTRIBUTIONS is the primary call-to-action — group all `seeking-contributors` issues by category (governance, security, tooling). These are actionable by anyone, regardless of project ownership
+- Issues with cross-cutting labels (`security`, `trust`, `upstream-contribution`) belong in SEEKING CONTRIBUTIONS, not under their parent project — they represent ecosystem-level work
 - Contributors: one line each — handle, zone, agent, active projects
 - Summary stats line at bottom with pipe separators
 - Replace bracketed `[placeholders]` with actual data from your scan
