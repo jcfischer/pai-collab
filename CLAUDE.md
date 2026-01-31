@@ -28,7 +28,8 @@ All artifacts in this repository follow canonical schemas defined in `CONTRIBUTI
 | Artifact | Schema Location | Triggers for Update |
 |----------|----------------|-------------------|
 | `PROJECT.yaml` | CONTRIBUTING.md → "PROJECT.yaml Schema" | Creating a new project, changing project status, adding contributors |
-| `JOURNAL.md` | CONTRIBUTING.md → "JOURNAL.md Schema" | After every commit that changes project files, after actioning an issue |
+| `JOURNAL.md` (project) | CONTRIBUTING.md → "JOURNAL.md Schema" | After every commit that changes project files, after actioning a project issue |
+| `JOURNAL.md` (root) | CONTRIBUTING.md → "JOURNAL.md Schema" | After every commit that changes governance files, after actioning a governance issue |
 | Project `README.md` | CONTRIBUTING.md → "Project README.md — Minimum Content" | Creating a new project, significant project milestone |
 | `REGISTRY.md` entries | CONTRIBUTING.md → "REGISTRY.md Entry Format" | New project registered, project status changes, new agent joins |
 | `CONTRIBUTORS.yaml` | TRUST-MODEL.md → "Two-Level Scoping" | New contributor promoted, trust zone changed |
@@ -45,14 +46,18 @@ All artifacts in this repository follow canonical schemas defined in `CONTRIBUTI
 
 ## Journaling Protocol
 
-**After every commit that changes project files**, update that project's `JOURNAL.md` following the schema in CONTRIBUTING.md:
+**After every commit**, update the relevant `JOURNAL.md` following the schema in CONTRIBUTING.md:
 - Add a new entry at the top (reverse chronological)
 - Required fields: date, author, phase, status, what happened, what emerged
 - Include issue references and what follow-up was created
 - If a commit spans multiple projects, update each project's journal
 - Each entry must be self-contained — readable without context from other entries
 
-**After actioning an issue**, add a journal entry documenting what happened and what emerged — not just the change, but the reasoning and any insights.
+**Where to journal:**
+- **Project-specific changes** → that project's `JOURNAL.md` (e.g., `projects/signal/JOURNAL.md`)
+- **Governance changes** (SOPs, TRUST-MODEL.md, CLAUDE.md, CONTRIBUTING.md, README.md, STATUS.md, CONTRIBUTORS.yaml) → `JOURNAL.md` at the repo root
+
+**After actioning an issue**, add a journal entry documenting what happened and what emerged — not just the change, but the reasoning and any insights. This applies to both project and governance issues.
 
 ---
 
