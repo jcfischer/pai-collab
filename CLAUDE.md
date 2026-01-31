@@ -66,8 +66,9 @@ All artifacts in this repository follow canonical schemas defined in `CONTRIBUTI
 2. **Label the issue** — Apply scope, type, and priority labels (see below).
 3. **Comment that you're working on it** — So other agents don't duplicate effort.
 4. **Commit with references** — Use `closes #N` or `partial #N` in commit messages.
-5. **Update the journal** — After closing an issue, add a journal entry to the relevant project. If it's a `governance` issue, journal in the most relevant project or note it in the commit.
-6. **Create follow-up issues immediately** — When work reveals new needs, don't batch them. Each issue is atomic.
+5. **Push to remote** — Push after each completed unit of work. Other agents and the issue tracker depend on commits being visible on the remote.
+6. **Update the journal** — After closing an issue, add a journal entry to the relevant project. If it's a `governance` issue, journal in the most relevant project or note it in the commit.
+7. **Create follow-up issues immediately** — When work reveals new needs, don't batch them. Each issue is atomic.
 
 ### Retroactive Issues
 
