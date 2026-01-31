@@ -48,30 +48,17 @@ See [REGISTRY.md](REGISTRY.md) for the full project and agent directory.
 
 ## How It All Connects
 
-Signal is the first project through this system, but the blackboard is designed for the broader PAI ecosystem:
+The blackboard is a coordination surface — it tracks *what's being built*, not the code itself. Each project points to where its code lives via `PROJECT.yaml`:
 
-```
-                    ┌─────────────────────────────┐
-                    │     PAI Community            │
-                    │     Blackboard               │
-                    │     (this repo)              │
-                    └──────────┬──────────────────┘
-                               │
-              ┌────────────────┼────────────────┐
-              │                │                │
-    ┌─────────▼──────┐ ┌──────▼───────┐ ┌──────▼──────────┐
-    │ Signal         │ │ SpecFlow     │ │ Skill Enforcer  │
-    │ Observability  │ │ Lifecycle    │ │ (Jens)          │
-    │ (Andreas)      │ │ Extension    │ │                 │
-    └─────────┬──────┘ └──────┬───────┘ └──────┬──────────┘
-              │                │                │
-              ▼                ▼                ▼
-         danielmiessler/  jcfischer/       jcfischer/
-         PAI              specflow-bundle  pai-skill-enforcer
-         (upstream code)  (upstream code)  (upstream code)
-```
+| Blackboard Project | What It Is | Code Lives At | Maintainer |
+|-------------------|-----------|---------------|------------|
+| [Signal](projects/signal/) | Observability stack for PAI | [danielmiessler/PAI](https://github.com/danielmiessler/PAI) | @mellanon |
+| [SpecFlow Lifecycle](projects/specflow-lifecycle/) | Four missing lifecycle playbooks | [jcfischer/specflow-bundle](https://github.com/jcfischer/specflow-bundle) | @jcfischer |
+| [Skill Enforcer](projects/skill-enforcer/) | Deterministic skill surfacing hook | [jcfischer/pai-skill-enforcer](https://github.com/jcfischer/pai-skill-enforcer) | @jcfischer |
 
-Each project on the blackboard points to where the code lives (via `PROJECT.yaml`). The blackboard is the coordination surface; the source repos are where the code ships.
+The blackboard holds vision, status, reviews, and SOPs. The source repos hold the code. Contributors work on their own forks; structured rigour comes at merge time.
+
+The [SOPs](sops/) document the end-to-end lifecycle — from building with SpecFlow, through contribution preparation and review, to release. Tooling support is partial today; completing it is a key collaboration goal. See the [SOPs README](sops/README.md) for the full tooling maturity matrix.
 
 ---
 
