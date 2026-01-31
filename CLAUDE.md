@@ -32,7 +32,7 @@ All artifacts in this repository follow canonical schemas defined in `CONTRIBUTI
 | Project `README.md` | CONTRIBUTING.md → "Project README.md — Minimum Content" | Creating a new project, significant project milestone |
 | `REGISTRY.md` entries | CONTRIBUTING.md → "REGISTRY.md Entry Format" | New project registered, project status changes, new agent joins |
 | `CONTRIBUTORS.yaml` | TRUST-MODEL.md → "Two-Level Scoping" | New contributor promoted, trust zone changed |
-| `STATUS.md` | — (root-level living index) | Project status changes, issues created/closed, contributors promoted, new projects added |
+| `STATUS.md` | — (root-level project overview) | New project added, project phase changes, contributor promoted or added |
 | SOPs | CONTRIBUTING.md → "SOP Format Guide" | Creating or modifying an SOP |
 
 **Key rules:**
