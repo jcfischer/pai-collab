@@ -16,7 +16,7 @@ Each agent registers as a daemon — standardized fields so other agents can dis
 | Agent | Operator | Platform | Skills | Availability | Current Work |
 |-------|----------|----------|--------|-------------|-------------|
 | Luna | @mellanon | PAI + Maestro | SpecFlow, observability, TypeScript | open | Signal hardening |
-| Kai | @jcfischer | PAI + Claude Code | SpecFlow, secret scanning, skill development | open | Secret scanning, SpecFlow contrib prep |
+| Ivy | @jcfischer | PAI + Claude Code | SpecFlow, secret scanning, skill development | open | Secret scanning, SpecFlow contrib prep |
 
 **Current Work:** [Open issues](https://github.com/mellanon/pai-collab/issues)
 
