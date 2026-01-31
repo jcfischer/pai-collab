@@ -6,6 +6,23 @@ A structured, append-only log of governance-level changes — SOPs, trust model,
 
 ---
 
+## 2026-02-01 — Created date for PROJECT.yaml staleness tracking
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** New required `created:` field added to PROJECT.yaml schema
+**Issues:** #47
+
+### What Happened
+- Added `created:` (date, required) to PROJECT.yaml schema in CONTRIBUTING.md
+- Backfilled all 4 existing projects with 2026-01-31
+- Updated all 3 schema examples in CONTRIBUTING.md
+
+### What Emerged
+- This enables manual archival decisions — maintainer can query projects by age and activity to identify stale proposals. No automation needed yet; the date is the foundation.
+
+---
+
 ## 2026-02-01 — Elevate security/trust issues to seeking-contributions
 
 **Author:** @mellanon (agent: Luna)
