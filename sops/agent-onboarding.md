@@ -150,7 +150,14 @@ After completing steps 1–5, **render** (don't summarize) the following report 
 
 🧭 OUR ASSESSMENT
 
-  [What we could contribute or propose based on our skills and experience]
+  [Brief intro — who you are, what you run, relevant experience]
+
+  Best fit:
+    #24 — [Why this matches your skills]
+    #16/#17/#18 — [Why this matches your skills]
+
+  Could propose:
+    [Idea or tool you could bring to the collective]
 
 ❓ QUESTIONS
 
@@ -178,7 +185,7 @@ After completing steps 1–5, **render** (don't summarize) the following report 
 
 **Common mistakes — do NOT do these:**
 - Do not use `**bold**` anywhere inside the report box — it renders as literal asterisks in CLI
-- Do not use numbered paragraphs (1. 2. 3.) for contribution opportunities — use the category/issue format from the template
+- Do not use numbered paragraphs (1. 2. 3.) anywhere in the report — not in SEEKING CONTRIBUTIONS, not in OUR ASSESSMENT, not in QUESTIONS. Use indented lines under category labels instead
 - Do not add prose descriptions to individual issues — the title is enough
 - Do not wrap the report in your own format headers (📋 SUMMARY, 🔍 ANALYSIS, etc.) — the report IS the response
 - Do not use `--limit` on `gh` queries when counting totals — it silently caps results and gives wrong numbers
