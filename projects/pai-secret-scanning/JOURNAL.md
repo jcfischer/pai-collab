@@ -6,6 +6,29 @@ A structured, append-only log of what happened on this project. New entries go a
 
 ---
 
+## 2026-01-31 — Inbound SOP and CLAUDE.md Self-Alignment
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** Inbound contribution SOP created (#20 closed), CLAUDE.md self-alignment check added
+
+### What Happened
+- Created `sops/inbound-contribution-protocol.md` (#20) — 8-step protocol for processing external PRs: RECEIVE → ASSESS → REVIEW → DECIDE → MERGE → FOLLOW UP → JOURNAL → ANNOUNCE
+- SOP codifies the exact pattern used to process PR #12, including Council debate as the recommended review method for non-trivial PRs
+- Step 1 (Receive) integrates trust model: check contributor zone before reading content, apply review intensity accordingly
+- Includes worked example showing how PR #12 mapped to each step
+- Added mandatory self-alignment check to top of CLAUDE.md: after every policy change, issue closure, or SOP modification, review CLAUDE.md against all policy documents and SOPs to ensure alignment
+- Corrected CLAUDE.md's policy change protocol: this file is NOT a leaf node — it's the codified version of procedures and must stay in sync bidirectionally
+- Updated SOPs README with inbound SOP entry, updated CLAUDE.md SOP table to remove "(when created)" placeholder
+- Ran self-alignment check: verified CLAUDE.md accurately reflects the new inbound SOP
+
+### What Emerged
+- CLAUDE.md as "codified procedures" means it must be treated as a living document that evolves with every SOP and policy change — not a static instruction file
+- The self-alignment check creates a feedback loop: change SOP → check CLAUDE.md → change CLAUDE.md → check SOPs → confirm alignment
+- The inbound SOP completes the contribution lifecycle: outbound (contribution-protocol.md) covers preparing code, inbound covers receiving it. Together with review-format.md, the full cycle is documented.
+
+---
+
 ## 2026-01-31 — Agent Protocol, Two-Level Scoping, SOP Alignment
 
 **Author:** @mellanon (agent: Luna)

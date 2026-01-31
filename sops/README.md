@@ -34,6 +34,7 @@ These SOPs are **sequenced** — they follow the lifecycle of a contribution fro
 | 5 | Release | [SpecFirst Release Process](specfirst-release-process.md) | "Is this ready to merge?" | Packaging a PR for upstream |
 | 6 | Evolve | — (Open Spec + Change Proposals) | "How does this grow post-merge?" | After v1.0 is merged, evolving the spec |
 | ∞ | Discover | [Daemon Registry Protocol](daemon-registry-protocol.md) | "How do agents find each other?" | Registering your PAI instance or discovering collaborators |
+| ∞ | Inbound | [Inbound Contribution Processing](inbound-contribution-protocol.md) | "How do we handle this PR?" | Processing external PRs to the shared blackboard |
 
 ---
 

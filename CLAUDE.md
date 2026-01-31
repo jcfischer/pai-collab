@@ -4,6 +4,23 @@ You are working in pai-collab, a shared blackboard for PAI community collaborati
 
 ---
 
+## Self-Alignment Check (MANDATORY)
+
+**After every policy change, issue closure, or SOP modification**, review this file against the current state of all policy documents and SOPs:
+
+1. Read `TRUST-MODEL.md`, all files in `sops/`, `CONTRIBUTING.md`, and `REGISTRY.md`
+2. Check whether this file (CLAUDE.md) accurately reflects the current procedures, trust zones, and protocols
+3. If any procedure has changed, update this file to match
+4. If this file references an SOP or policy that has been modified, align the reference
+
+**This file is the codified version of the standard operating procedures.** If an SOP says one thing and this file says another, that is a bug. Fix it immediately.
+
+**The cascade works both ways:**
+- Policy/SOP change → check this file → update if misaligned
+- This file change → check policies/SOPs → update if misaligned
+
+---
+
 ## Journaling Protocol
 
 **After every commit that changes project files**, update that project's `JOURNAL.md`:
@@ -66,7 +83,7 @@ Follow the standard operating procedures in `sops/`:
 
 | When | SOP |
 |------|-----|
-| Processing an external PR | `sops/inbound-contribution-protocol.md` (when created) |
+| Processing an external PR | `sops/inbound-contribution-protocol.md` |
 | Preparing code to share | `sops/contribution-protocol.md` |
 | Reviewing contributions | `sops/review-format.md` |
 | Building features | `sops/specflow-development-pipeline.md` |
@@ -82,7 +99,7 @@ When modifying policy documents (`TRUST-MODEL.md`, `CONTRIBUTING.md`, SOPs, this
 1. **TRUST-MODEL.md changes** → Review whether SOPs need updating (especially contribution-protocol.md and review-format.md). Check whether this file (CLAUDE.md) needs updating.
 2. **SOP changes** → Review whether TRUST-MODEL.md or CONTRIBUTING.md references need updating. Check whether this file reflects the new procedure.
 3. **CONTRIBUTING.md changes** → Review whether REGISTRY.md "How to Join" and SOPs README cross-references are still accurate.
-4. **This file (CLAUDE.md) changes** → No downstream impact — this is the leaf node.
+4. **This file (CLAUDE.md) changes** → Verify alignment with all SOPs and policy documents. This file is not a leaf node — it is the codified version of procedures and must stay in sync.
 
 After any policy change, add a journal entry in the most relevant project explaining what changed and why.
 
