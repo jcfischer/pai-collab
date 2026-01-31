@@ -20,9 +20,6 @@ A structured, append-only log of what happened on this project. New entries go a
 ### What Emerged
 - ...
 
-### What's Needed
-- ...
-
 ---
 
 -->
@@ -39,10 +36,6 @@ A structured, append-only log of what happened on this project. New entries go a
 - Mapped tooling maturity across the full lifecycle (see [SOPs README](../../sops/README.md))
 - Identified acceptance hardening as a missing phase between Build and Contrib Prep
 
-### What's Needed
-- Discussion with @jcfischer on playbook format and SpecFlow bundle integration
-- Draft playbooks in Maestro autorun format
-- Test full lifecycle by shipping Signal through it
-- Five PAI skills to make agents interact fluently: Collab, Review, Contrib Prep, Release, Open Spec
+**Track open work:** [SpecFlow lifecycle issues](https://github.com/mellanon/pai-collab/issues?q=is%3Aissue+label%3Aproject%2Fspecflow-lifecycle)
 
 ---

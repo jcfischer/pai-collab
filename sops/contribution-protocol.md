@@ -2,17 +2,6 @@
 
 How to extract a contribution from a private PAI trunk for public collaboration.
 
-## Tooling Status
-
-| Layer | Status | What Exists |
-|-------|--------|-------------|
-| **Process doc** | ✅ This document | Human-readable extraction and sanitization procedure |
-| **Prototype** | ⚠️ Manual process | Battle-tested across 3 projects, but no automation |
-| **Maestro playbook** | ❌ Needs building | Autorun: INVENTORY → SANITIZE → EXTRACT → VERIFY → PUBLISH |
-| **PAI skill (CLI)** | ❌ Needs building | `bin/contrib/` — inventory, sanitize, cherry-pick, verify |
-
-See [SOPs README](README.md) for where this fits in the full lifecycle.
-
 ## Why This Exists
 
 PAI development happens on private trunks entangled with personal data — `.env` files, API keys, personal paths, vault references, real test fixtures. Before any code can be shared, it must be extracted cleanly through a sanitization gate.
@@ -103,31 +92,6 @@ git checkout signal-v1.0.0 -- Observability/ hooks/ToolUseInstrumentation.hook.t
 - [ ] Push contrib branch to public fork: `git push fork contrib/signal-v1.0.0`
 - [ ] Update `PROJECT.yaml` in blackboard with contrib branch link
 - [ ] Update project `JOURNAL.md` with contrib prep completion
-
-## Concrete Example: Signal
-
-Signal has **304 files changed** on `feature/signal-agent-2`, but only **~102 are Signal files**. The rest is USER data, Maestro state, credentials, and config noise:
-
-| Category | Files | Action |
-|----------|-------|--------|
-| Signal source code | ~102 | Include |
-| Observability Docker config | ~15 | Include |
-| Hook instrumentation | 3 | Include |
-| USER/ personal data | ~80 | Exclude |
-| .env, credentials | ~10 | Exclude |
-| Maestro state files | ~50 | Exclude |
-| Other config noise | ~44 | Exclude |
-
-The file inventory makes this explicit. Without it, a naive `git push` would publish personal data.
-
-## Battle-Tested Across
-
-| Project | Files | Outcome |
-|---------|-------|---------|
-| Context Skill | 50 | PR created, rejected by upstream |
-| Jira Skill | 18 | PR created, rejected by upstream |
-| pai-knowledge Bundle | 63 | PR created, rejected by upstream |
-| Signal (upcoming) | ~102 | In Contrib Prep |
 
 ## References
 

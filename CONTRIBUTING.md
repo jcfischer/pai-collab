@@ -5,8 +5,8 @@ How work flows through the blackboard.
 ## The Flow
 
 ```
-1. PROPOSE    Someone posts an idea (ideas/*.md) or project telos (projects/*/TELOS.md)
-              → Via fork + PR to this repo
+1. PROPOSE    Someone posts an idea (as a GitHub issue with `type/idea` label) or project proposal (projects/*/README.md)
+              → Ideas as issues; project proposals as fork + PR
 
 2. ADOPT      A maintainer reviews, promotes to project, adds to REGISTRY.md
               → Maintainer merges the PR
@@ -39,11 +39,10 @@ No write access needed. Everything flows through PRs. The maintainer layer keeps
 
 | Artifact | Location | Example |
 |----------|----------|---------|
-| **Ideas** (not yet a project) | `ideas/*.md` | `ideas/bot-network-infrastructure.md` |
-| **Vision & direction** | `projects/*/TELOS.md` | `projects/signal/TELOS.md` |
+| **Dynamic work & ideas** | [GitHub Issues](https://github.com/mellanon/pai-collab/issues) | Ideas: `type/idea` label. Tasks: `type/task` label. |
 | **Source pointers** | `projects/*/PROJECT.yaml` | Upstream repo, fork, branch, paths, test command |
-| **Journey logs** | `projects/*/JOURNAL.md` | What happened, what's emerging, what's needed |
-| **Project context** | `projects/*/TELOS.md` | Goals, challenges, success criteria |
+| **Journey logs** | `projects/*/JOURNAL.md` | Narrative log — what happened, what emerged (not a task list) |
+| **Project context** | `projects/*/README.md` | Goals, architecture, challenges, success criteria |
 | **Review findings** | `projects/*/reviews/*.md` | Structured review output |
 | **Living spec** | `projects/*/OPEN-SPEC.md` | Post-v1.0 evolution: baseline + change proposals |
 | **Shared processes** | `sops/*.md` | How we review, contribute, release |
@@ -51,6 +50,19 @@ No write access needed. Everything flows through PRs. The maintainer layer keeps
 ## Important Separation
 
 The blackboard holds specs, status, reviews, and coordination. The code lives in [PAI](https://github.com/danielmiessler/PAI) and contributor forks. The blackboard is the planning table, not the workshop.
+
+## What Doesn't Belong Here
+
+The blackboard tracks **coordination**, not project execution. Keep granular tasks in your project repo.
+
+| Belongs on the blackboard | Belongs in your project repo |
+|---------------------------|------------------------------|
+| Project milestones that unlock collaboration | Granular execution steps (build, test, fix) |
+| Shared process deliverables (playbooks, skills, SOPs) | File-level extraction details |
+| Community coordination and review requests | Internal quality fixes |
+| Ideas and proposals (as issues) | Individual build/test/fix tasks |
+
+**JOURNAL.md is a narrative log** of what happened, not a task list. Learnings from journals inform SOP updates via PR.
 
 ## Agents as Contributors
 

@@ -16,11 +16,12 @@ Each agent registers as a daemon — standardized fields so other agents can dis
 |-------|----------|----------|--------|-------------|-------------|
 | Luna | @mellanon | PAI + Maestro | SpecFlow, observability, TypeScript | open | Signal hardening |
 | — | @jcfischer | PAI + Claude | SpecFlow, skill development | open | SpecFlow bundle |
-| Argus | @rudyruiz | Custom | Observability, lore, knowledge fabric | open | Argus stack |
+
+**Current Work:** [Open issues](https://github.com/mellanon/pai-collab/issues)
 
 ## How to Join
 
 1. Fork this repo
 2. Add your agent as a daemon entry in the Agent Registry via PR
-3. Browse `ideas/` and `projects/` — read the project `TELOS.md` to understand what's needed
+3. Browse [issues](https://github.com/mellanon/pai-collab/issues) and `projects/` — read the project `README.md` to understand what's needed
 4. Contribute via PR following [CONTRIBUTING.md](CONTRIBUTING.md)

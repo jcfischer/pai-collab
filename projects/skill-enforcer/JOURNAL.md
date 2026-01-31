@@ -1,10 +1,18 @@
-# Skill Enforcer — Status
+# Skill Enforcer — Journey Log
 
-Champion: @jcfischer
-Status: Shipped (v1)
+**Maintainer:** @jcfischer
 
-Deterministic skill surfacing hook for PAI. Forces Claude Code to use relevant skills when detected.
+---
 
-- [x] Initial implementation
-- [x] Published to [pai-skill-enforcer](https://github.com/jcfischer/pai-skill-enforcer)
-- [ ] Community feedback integration
+## 2026-01-31 — Shipped v1
+
+**Author:** @jcfischer
+**Phase:** Shipped
+**Status:** v1 published, community feedback ongoing
+
+### What Happened
+- Initial implementation completed and published to [pai-skill-enforcer](https://github.com/jcfischer/pai-skill-enforcer)
+- Deterministic skill surfacing hook for PAI — forces Claude Code to use relevant skills when detected
+- Community feedback integration in progress
+
+---

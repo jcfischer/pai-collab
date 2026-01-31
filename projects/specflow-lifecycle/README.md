@@ -9,32 +9,32 @@
 Five layers work together to enable autonomous spec-driven development. Each layer leans on the one below it:
 
 ```
-┌─────────────────────────────────────────────────────────────────────────┐
-│  5. MAESTRO                                                             │
-│  Playbooks orchestrate multi-step workflows in Auto Run mode.           │
-│  Each playbook step is a markdown file with tasks, gates, and routing.  │
-│  State: .maestro/CURRENT_FEATURE.md, .maestro/outputs/                  │
-│  Reads SpecFlow state to know which feature is next, what phase it's in.│
-├─────────────────────────────────────────────────────────────────────────┤
-│  4. PAI (Skills + Hooks)                                                │
-│  Skills provide domain expertise (SKILL.md + workflows + tools).        │
-│  Hooks fire at lifecycle events (SessionStart, PreToolUse, etc.).       │
-│  _SPECFIRST skill wraps release process. Hooks enable observability.    │
-├─────────────────────────────────────────────────────────────────────────┤
-│  3. SPECFLOW BUNDLE (CLI + State)                                       │
+┌──────────────────────────────────────────────────────────────────────────┐
+│  5. MAESTRO                                                              │
+│  Playbooks orchestrate multi-step workflows in Auto Run mode.            │
+│  Each playbook step is a markdown file with tasks, gates, and routing.   │
+│  State: .maestro/CURRENT_FEATURE.md, .maestro/outputs/                   │
+│  Reads SpecFlow state to know which feature is next, what phase it's in. │
+├──────────────────────────────────────────────────────────────────────────┤
+│  4. PAI (Skills + Hooks)                                                 │
+│  Skills provide domain expertise (SKILL.md + workflows + tools).         │
+│  Hooks fire at lifecycle events (SessionStart, PreToolUse, etc.).        │
+│  _SPECFIRST skill wraps release process. Hooks enable observability.     │
+├──────────────────────────────────────────────────────────────────────────┤
+│  3. SPECFLOW BUNDLE (CLI + State)                                        │
 │  `specflow specify`, `specflow plan`, `specflow implement` CLI commands. │
-│  SQLite state tracking: .specflow/features.db, .specflow/evals.db       │
-│  Quality gates (≥80%), interview protocol, TDD enforcement.             │
-│  Specs stored in .specify/specs/ per feature.                           │
-├─────────────────────────────────────────────────────────────────────────┤
-│  2. CLAUDE CODE                                                         │
-│  The agentic coding environment. Executes tool calls, manages context,  │
-│  runs bash commands, reads/writes files. The execution engine.          │
-├─────────────────────────────────────────────────────────────────────────┤
-│  1. CLAUDE OPUS 4.5 (LLM)                                              │
-│  The model powering everything above. Reasoning, code generation,       │
-│  quality assessment, spec writing, review analysis.                     │
-└─────────────────────────────────────────────────────────────────────────┘
+│  SQLite state tracking: .specflow/features.db, .specflow/evals.db        │
+│  Quality gates (≥80%), interview protocol, TDD enforcement.              │
+│  Specs stored in .specify/specs/ per feature.                            │
+├──────────────────────────────────────────────────────────────────────────┤
+│  2. CLAUDE CODE                                                          │
+│  The agentic coding environment. Executes tool calls, manages context,   │
+│  runs bash commands, reads/writes files. The execution engine.           │
+├──────────────────────────────────────────────────────────────────────────┤
+│  1. CLAUDE OPUS 4.5 (LLM)                                                │
+│  The model powering everything above. Reasoning, code generation,        │
+│  quality assessment, spec writing, review analysis.                      │
+└──────────────────────────────────────────────────────────────────────────┘
 ```
 
 ### How the layers interact during a build
@@ -194,28 +194,28 @@ openspec/
 With all four playbooks, the full lifecycle becomes:
 
 ```
-                    ┌──────────────────────────────────────────────────┐
+                    ┌───────────────────────────────────────────────────┐
                     │            SPECFLOW (existing)                    │
-                    │  SPECIFY → PLAN → TASKS → IMPLEMENT              │
-                    │     ↑ quality gates ↑ TDD enforcement            │
-                    └────────────────────┬─────────────────────────────┘
+                    │  SPECIFY → PLAN → TASKS → IMPLEMENT               │
+                    │     ↑ quality gates ↑ TDD enforcement             │
+                    └────────────────────┬──────────────────────────────┘
                                          │
                               HARDEN (human acceptance)
                                          │
-                    ┌────────────────────┼─────────────────────────────┐
+                    ┌────────────────────┼──────────────────────────────┐
                     │       LIFECYCLE EXTENSION (new)                   │
                     │                    │                              │
-                    │  CONTRIB PREP → REVIEW → RELEASE                 │
-                    │  (sanitize)    (independent)  (8 gates)          │
+                    │  CONTRIB PREP → REVIEW → RELEASE                  │
+                    │  (sanitize)    (independent)  (8 gates)           │
                     │                    │                              │
-                    └────────────────────┼─────────────────────────────┘
+                    └────────────────────┼──────────────────────────────┘
                                          │
                                     MERGE TO UPSTREAM
                                          │
-                    ┌────────────────────┼─────────────────────────────┐
+                    ┌────────────────────┼──────────────────────────────┐
                     │          OPEN SPEC (evolution)                    │
                     │  baseline + Change Proposals → next cycle         │
-                    └──────────────────────────────────────────────────┘
+                    └───────────────────────────────────────────────────┘
 ```
 
 ---

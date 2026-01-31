@@ -20,9 +20,6 @@ A structured, append-only log of what happened on this project. New entries go a
 ### What Emerged
 - ...
 
-### What's Needed
-- ...
-
 ---
 
 -->
@@ -43,10 +40,7 @@ A structured, append-only log of what happened on this project. New entries go a
 - Tooling coverage is partial: Build phase is fully tooled (SpecFlow + Maestro), everything else is process docs + manual execution
 - End-to-end tooling integration (SpecFlow bundle + Maestro playbooks + PAI skills) is a key collaboration goal
 
-### What's Needed
-- **Reviewers** — Independent review of Signal code once the clean branch is up
-- **Docker feedback** — Is the VictoriaMetrics stack reasonable for local PAI?
-- **SpecFlow lifecycle feedback** — Do the four missing playbooks make sense?
+**Track open work:** [Signal issues](https://github.com/mellanon/pai-collab/issues?q=is%3Aissue+label%3Aproject%2Fsignal)
 
 ---
 
@@ -78,9 +72,6 @@ A structured, append-only log of what happened on this project. New entries go a
 ### What Happened
 - 708 tests passing across four acceptance levels (L1 unit → L4 acceptance)
 - Docker stack runs end-to-end on local OrbStack
-
-### What's Needed
-- Begin Contrib Prep: extract ~102 Signal files from private trunk (branch has 304 files, most are personal config/Maestro state)
 
 ---
 

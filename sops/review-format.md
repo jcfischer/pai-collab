@@ -2,17 +2,6 @@
 
 How to conduct an independent code review on a blackboard project.
 
-## Tooling Status
-
-| Layer | Status | What Exists |
-|-------|--------|-------------|
-| **Process doc** | ✅ This document | Human-readable review procedure and output template |
-| **Maestro playbook** | ⚠️ Partial | `PR_Review` covers Layer 2 (code quality, security, tests, docs) |
-| **PAI skill (CLI)** | ❌ Needs building | `bin/review/` — clone, gate, playbook, findings submission |
-| **External tools** | ⚠️ Available | BugBot, Greptile available but not integrated into pipeline |
-
-See [SOPs README](README.md) for where this fits and what's needed across all phases.
-
 ## Principle
 
 **The auditor doesn't prepare the books** ([Greptile](https://www.greptile.com/blog/ai-code-review-bubble)). The reviewing agent must be independent from the coding agent.
@@ -65,75 +54,6 @@ This playbook integrates into the SpecFlow pipeline — it runs after `SpecFlow_
 | [Vibe Kanban](https://github.com/BloopAI/vibe-kanban) | Task orchestration across multiple coding agents — switch agents, parallel execution, status tracking | HITL orchestration for managing review at 10x speed. Same trajectory as Maestro's auto-run | Available — exploratory |
 
 ---
-
-## What Needs to Be Built
-
-### 1. SpecFlow Review Playbook (for Jens' SpecFlow Bundle)
-
-A new playbook in Maestro autorun format that extends the existing PR_Review into the SpecFlow lifecycle. This is one of the four missing playbooks in the [SpecFlow Lifecycle Extension](../projects/specflow-lifecycle/).
-
-**Differences from the existing PR_Review:**
-- Operates on clean contrib branch (not a feature branch PR)
-- Validates against PAI constitutional documents (PAI-PRINCIPLES, SKILL-BEST-PRACTICES, TDD-EVALS)
-- Produces findings in the blackboard review output format (see template below)
-- Posts structured results to `projects/*/reviews/` via PR
-
-**Owner:** @jcfischer (SpecFlow bundle maintainer)
-
-### 2. PAI Review Skill
-
-A new PAI skill following the SKILL.md + bin/tool/ pattern (same as Jira, Coupa, Signal):
-
-```
-skills/Review/
-├── SKILL.md                    # USE WHEN review, code review, independent review, Greptile
-└── workflows/
-    └── ReviewProtocol.md       # Step-by-step review workflow
-
-bin/review/
-├── review.ts                   # CLI entry point
-├── lib/
-│   ├── config.ts               # Blackboard repo URL, contrib branch patterns
-│   ├── clone.ts                # Clone contrib branch from PROJECT.yaml
-│   ├── gates.ts                # Run automated gates (BugBot, Greptile integration)
-│   ├── playbook.ts             # Trigger Maestro PR_Review playbook
-│   └── findings.ts             # Format findings, submit to reviews/ via PR
-└── package.json
-```
-
-**CLI usage:**
-```bash
-review signal                    # Full review: clone contrib branch, run all layers, post findings
-review signal --layer automated  # Automated gates only (BugBot, Greptile)
-review signal --layer playbook   # Maestro PR_Review only
-review signal --layer community  # Format findings for community PR submission
-```
-
-The skill reads `PROJECT.yaml` to know what to clone and test, runs the Maestro playbook for depth, integrates external tool findings, and posts structured results to `projects/*/reviews/` via PR.
-
-**Owner:** @mellanon (to be contributed as PAI skill)
-
-### 3. Integration Layer
-
-The layered strategy means wiring these together:
-
-```
-PR opened on contrib branch
-    │
-    ├── BugBot runs automatically (GitHub Actions)
-    ├── Greptile runs automatically (GitHub integration)
-    │
-    ├── Maestro PR_Review playbook triggered (manual or CI)
-    │   → Produces REVIEW_SUMMARY.md + PR_COMMENT.md
-    │
-    ├── Community agents read PROJECT.yaml, clone, review independently
-    │   → Post findings to projects/*/reviews/ via PR
-    │
-    └── Human maintainer reviews all findings
-        → Merge decision
-```
-
-**Not yet built.** This is the orchestration that connects existing tools into the layered pipeline.
 
 ---
 
@@ -188,12 +108,3 @@ Branch: <contrib-branch>
 [ ] Needs rework (explain what and why)
 ```
 
-## Example: Signal Review (Upcoming)
-
-When Signal's clean contrib branch is pushed, a review would:
-
-1. Read `projects/signal/PROJECT.yaml` → clone `mellanon/PAI`, checkout `contrib/signal-v1.0.0`
-2. Run `bun test` (708 tests)
-3. Review `Observability/`, `hooks/ToolUseInstrumentation.hook.ts`, `hooks/LoadContext.hook.ts`, `bin/ingest/`
-4. Focus areas: Docker footprint, OTLP configuration, test quality, PAI convention adherence
-5. Post findings to `projects/signal/reviews/2026-02-XX-review-<author>.md` via PR
