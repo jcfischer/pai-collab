@@ -24,6 +24,47 @@ A structured, append-only log of what happened on this project. New entries go a
 
 -->
 
+## 2026-02-02 — Orchestration Layer Specified: F-011 through F-021 Reviewed
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Design
+**Status:** 11 new features specified and human-reviewed, ready for planning
+**Branch:** `feature/lifecycle-extension` on `mellanon/specflow-bundle`
+
+### What Happened
+- Added 11 features (F-011 through F-021) to the specflow queue — the orchestration/UX layer that makes the pipeline human-friendly
+- Used SpecFlow's own `specflow specify --batch` and `specflow plan` commands to generate specs (dogfooding the tool)
+- Human-reviewed every spec with @mellanon, making architectural decisions at each step
+- **Key architectural decisions established across all specs:**
+  - SQLite as source of truth for all state (approval gates, failure context, execution log). JSON files (progress.json, pending-approval.json, failure.json) are derived notification surfaces for external readers only
+  - Concurrency model: one feature per agent, multiple agents concurrent, SQLite WAL handles access
+  - Phase names use canonical lowercase from `types.ts`: `specify`, `plan`, `tasks`, `implement`
+  - Phase boundaries: `specify_to_plan`, `plan_to_tasks`, `tasks_to_implement`, `implement_to_complete`
+
+### Feature Summary
+
+| ID | Feature | Key Decision |
+|----|---------|-------------|
+| F-011 | Pipeline progress file | Atomic write (tmp+rename), `--watch`/`--brief`/`--json` modes |
+| F-012 | Phase transition notifications | Three tiers: CRITICAL (voice+desktop+terminal-block), REVIEW (voice+desktop), AMBIENT (log) |
+| F-013 | Approval gates | SQLite `approval_gates` table, `specflow approve`/`reject`/`pending` commands |
+| F-014 | Failure recovery | `blocked` status (not terminal), circuit breaker at 3 resumes, Doctorow gate hardcoded in complete |
+| F-015 | Execution audit log | No rollback (use git), no approval columns (JOIN to F-013), unbounded retention |
+| F-016 | Autorun | Respects F-013 gates, sequential for v1, flags phase/artifact mismatches |
+| F-017 | Evolve command | (Reviewed in parallel session) |
+| F-018 | Review gate | Extension of F-013 — adds `request-changes` feedback loop, not a separate status |
+| F-019 | Harden command | (Pending review) |
+| F-020 | Semantic versioning | Standard semver only, auto-derived changelog categories from spec deltas |
+| F-021 | Phase hooks | Pre-hooks can abort, post-hooks fire-and-forget, 30s timeout, `SPECFLOW_PHASE_STATUS` env var |
+
+### What Emerged
+- **F-013/F-018 overlap:** AI-generated specs independently created overlapping approval mechanisms. F-018 was refactored to extend F-013 rather than duplicate it — the only new command is `request-changes` (feedback loop back to implement)
+- **Dogfooding tension:** Using `specflow specify --batch` in an agent-calling-agent context requires headless mode (no interactive stdin). Batch mode works but needs enrichment fields first. Quality eval always returns 0% (no rubric configured)
+- **Recurring AI spec issues:** All batch-generated specs had the same 3 problems — JSON instead of SQLite for state, wrong phase names (from research docs, not source code), single-pipeline assumption. Root cause: features.json descriptions inherited assumptions from council debate output
+- **The stack tells a story:** F-011 (see it) → F-012 (hear about it) → F-013 (approve it) → F-014 (recover from it) → F-015 (audit it) → F-016 (run it all) — each layer builds on the previous
+
+---
+
 ## 2026-02-02 — All 10 Features Implemented (F-1 through F-10)
 
 **Author:** @mellanon (agent: Luna)
