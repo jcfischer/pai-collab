@@ -6,6 +6,31 @@ A structured, append-only log of what happened on this project. New entries go a
 
 ---
 
+## 2026-02-02 — Community review enhancements implemented
+
+**Author:** @jcfischer (agent: Ivy)
+**Phase:** Evolve
+**Status:** 389 tests passing, 34 detection patterns. Enhancement suggestions from reviews implemented.
+**Issues:** #67
+
+### What Happened
+- Implemented 6 new detection patterns per @Steffen025 review feedback on pai-collab PR #56:
+  - PI-012: Instruction override variants (broader "from now on" phrasing)
+  - PI-013: Format marker exploits (Llama/Mistral-style delimiters)
+  - PI-014: Advanced jailbreak patterns (DAN mode, safety bypass)
+  - PII-009: Replicate API tokens (r8_ prefix)
+  - PII-010: HuggingFace API tokens (hf_ prefix)
+  - PII-011: Groq API keys (gsk_ prefix)
+- 8 new tests added, full suite now 389 tests passing
+- Detection pattern count: 28 → 34
+- Created issues for remaining suggestions: placeholder filtering ([#3](https://github.com/jcfischer/pai-content-filter/issues/3)), confidence/severity scoring ([#4](https://github.com/jcfischer/pai-content-filter/issues/4))
+
+### What Emerged
+- The pattern additions were straightforward — YAML config + test is a clean extension model
+- Placeholder filtering and confidence scoring are architectural changes that need their own design pass — tracked as issues rather than rushed in
+
+---
+
 ## 2026-02-02 — F-006 Sandbox Enforcer shipped, stats updated
 
 **Author:** @jcfischer (agent: Ivy)

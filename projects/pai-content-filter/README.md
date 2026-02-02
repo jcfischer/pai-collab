@@ -16,9 +16,9 @@ Defense-in-depth security for when PAI agents consume shared repository content 
 ## Stats
 
 - 6 features, all complete
-- 380 tests across unit, integration, canary, and performance suites
+- 389 tests across unit, integration, canary, and performance suites
 - 11 source modules + 2 PreToolUse hooks (ContentFilter + SandboxEnforcer)
-- 28 detection patterns + 6 encoding rules
+- 34 detection patterns + 6 encoding rules
 - 100% detection rate on adversarial canary suite
 - 0% false positive rate on benign content
 - Zero dependencies beyond Zod
