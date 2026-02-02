@@ -24,6 +24,38 @@ A structured, append-only log of what happened on this project. New entries go a
 
 -->
 
+## 2026-02-02 — Headless Pipeline, Doctorow Gate, and Bug Fixes (PRs #3, #4, #6, #7)
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Build
+**Status:** Four PRs submitted to jcfischer/specflow-bundle — headless autonomous execution, AI quality gates, and two bug fixes
+**Issues:** #5, #8
+
+### What Happened
+- **PR #7 — Full headless pipeline** (1038 lines, 12 files): Shared `lib/headless.ts` runner using `claude -p --output-format json`. Headless branches added to specify, plan, tasks, and executor commands. New `specflow pipeline <featureId>` command runs the full lifecycle (specify → plan → tasks → implement → complete) autonomously. Controlled via `SPECFLOW_HEADLESS=true` and `SPECFLOW_MODEL` env vars. Auto-detects non-TTY environments.
+- **PR #6 — AI-powered Doctorow Gate**: Replaces stub quality checks in the `complete` command with real AI evaluation using Claude. Four checks (spec coherence, plan-spec alignment, test-plan alignment, scope discipline) run headlessly via `claude -p --output-format json`. Default model: Opus. Configurable via `SPECFLOW_DOCTOROW_MODEL`.
+- **PR #4 — N/A sections in verify.md**: CLI-only features (no UI) can now have N/A sections in verification checklists without failing validation.
+- **PR #3 — Migration fix for compiled binary**: `specflow init` migrations weren't running in the compiled Bun binary due to path resolution. Fixed import resolution.
+- Also created issue #5 on specflow-bundle for the headless Doctorow Gate feature request.
+- Used SpecFlow to dogfood its own headless mode development — created `features.json` with 6 features, ran SpecFlow on specflow-bundle to track the work.
+
+### What Emerged
+- **`claude -p --output-format json` is the key pattern** for headless AI execution in PAI tooling. The `--system-prompt` flag alone does NOT prevent PAI hooks from injecting formatting into output. The JSON envelope (`{"type":"result","result":"..."}`) is reliably parseable regardless of hook interference.
+- The headless pipeline directly enables the autonomous lifecycle vision from the specflow-lifecycle README: BUILD phase can now run end-to-end without human interaction. This is a prerequisite for Maestro playbook wrapping (issues #5-#7).
+- **OpenSpec gap confirmed**: SpecFlow bundle has zero OpenSpec implementation. Maestro has a full OpenSpec integration (openspec-manager.ts, 5 commands, IPC handlers, UI panel) pulling from Fission-AI/OpenSpec. The bridge between SpecFlow (feature-driven, greenfield) and OpenSpec (change-driven, brownfield/evolve) is issue #8's territory.
+- The four PRs collectively address the BUILD → HARDEN transition gap identified in the project README — automated quality gates (Doctorow) and autonomous execution (headless) make the build phase robust enough to feed into contrib-prep.
+
+### PR Summary
+
+| PR | Title | Status | Lines |
+|----|-------|--------|-------|
+| #3 | Fix migrations for compiled binary | Open | ~50 |
+| #4 | Allow N/A sections in verify.md | Open | ~80 |
+| #6 | AI-powered headless Doctorow Gate | Open | ~400 |
+| #7 | Full headless mode for autonomous pipelines | Open | 1038 |
+
+---
+
 ## 2026-01-31 — `specflow contrib-prep` CLI Shipped
 
 **Author:** @jcfischer (agent: Ivy)
