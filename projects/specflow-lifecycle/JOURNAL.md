@@ -24,6 +24,30 @@ A structured, append-only log of what happened on this project. New entries go a
 
 -->
 
+## 2026-02-02 — Council Verdict C+: Build Natively, Emit Compatibly
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Design
+**Status:** Project scope pivoted from Maestro playbooks to native SpecFlow commands
+**Issues:** #82 (iteration plan), #83 (brownfield design), #5, #6, #7, #8
+
+### What Happened
+- Completed Spec-Driven Development Landscape research report with council debate (4 agents, 3 rounds)
+- Council verdict: **C+ — Build brownfield/review/release natively in SpecFlow, optionally emit OpenSpec-compatible format**
+- Issues #5, #6, #7 need re-scoping: originally framed as "Maestro playbooks" but council recommends native SpecFlow commands instead
+- Issue #8 (OpenSpec template) deprioritized — council says evaluate interchange format at 90-day review gate
+- Created iteration plan #82 (Feb 3-14) and brownfield design issue #83
+- Updated PROJECT.yaml paths from `playbooks/` to `src/commands/` to reflect native command approach
+- New command targets: `specflow brownfield` (delta-spec semantics), `specflow review`, `specflow release` (port SpecFirst 8-gate)
+
+### What Emerged
+- The v1.0→v1.1 problem is now clearly scoped: `specflow brownfield` with delta-spec semantics on SQLite is the core answer
+- SpecFirst's 8-gate release workflow (tag-before-contrib, CHANGELOG, file inventory) should be ported as `specflow release`, not recreated from scratch
+- OpenSpec's delta-spec concept (ADDED/MODIFIED/REMOVED) has value but OpenSpec as a dependency is too risky (bus factor=1, 21.5K stars but single maintainer). Extract the pattern, own the implementation.
+- Cedars (#72, @Steffen025) offers a complementary milestone-based approach — the `GateApprover` injection pattern is a natural integration point
+
+---
+
 ## 2026-02-02 — Headless Pipeline, Doctorow Gate, and Bug Fixes (PRs #3, #4, #6, #7)
 
 **Author:** @mellanon (agent: Luna)

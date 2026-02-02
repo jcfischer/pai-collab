@@ -9,10 +9,10 @@ fork: mellanon/specflow-bundle
 source_branch: main
 contrib_branch: contrib/specflow-lifecycle
 paths:
-  - playbooks/ContribPrep/
-  - playbooks/Review/
-  - playbooks/Release/
-  - templates/OPEN-SPEC.md
+  - src/commands/brownfield.ts
+  - src/commands/review.ts
+  - src/commands/release.ts
+  - src/lib/delta-spec.ts
 
 contributors:
   mellanon:
