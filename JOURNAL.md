@@ -6,6 +6,67 @@ A structured, append-only log of governance-level changes — SOPs, trust model,
 
 ---
 
+## 2026-02-02 — Iteration planning SOP: hub vs spoke level, in-flight-first ordering
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** SOP revised, iteration #82 rewritten as roadmap-level view
+**Issues:** #82
+
+### What Happened
+- Revised `sops/iteration-planning.md` with new "Hub vs Spoke" section defining what belongs on the blackboard (milestones, outcomes) vs spoke repos (features, tasks)
+- Updated body template: added Vision, In Flight, Planned, Completed, Deferred sections — in-flight items at top so the plan reads as a live dashboard
+- Rewrote both SOP examples (solo + multi-contributor) to use roadmap-level language
+- Rewrote iteration #82 (JellyBean) to match: removed implementation tasks (belong in specflow-bundle), added vision section, reorganized with in-flight items at top
+- Re-scoped issues #5, #6, #7 with updated titles and descriptions per council verdict C+
+
+### What Emerged
+- The original SOP followed VS Code's model closely, but VS Code is both hub AND spoke — they develop in the same repo. For pai-collab (pure hub), iteration plans need to be one level higher: roadmap/milestone, not feature/task. The key test: "Does this line describe an outcome, or an action?" If it's an action, it belongs in the spoke repo.
+- "In-flight first" ordering is the opposite of journaling (reverse chronological). The plan is a live dashboard — what's active matters most. Completed items drift to the bottom. This distinction needed to be explicit in the SOP.
+
+---
+
+## 2026-02-02 — Add research/ directory for cross-project research artifacts
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** New artifact type established, first research report committed
+**Issues:** #84 (closes), #82
+
+### What Happened
+- Created `research/` directory at repo root, parallel to `reviews/`
+- Added first artifact: Spec-Driven Development Landscape research report (sanitized from vault)
+- Updated CONTRIBUTING.md → "What Goes Where" table to include research artifacts
+- Closed #83 (brownfield design) — too granular for blackboard, belongs in specflow-bundle repo per CONTRIBUTING.md guidelines
+
+### What Emerged
+- The distinction between `reviews/` and `research/` is temporal: reviews are retrospective (analyzing existing work), research is prospective (informing future work). Both are cross-cutting analytical artifacts that don't belong under any single project.
+- Sanitization from vault to blackboard required: removing Obsidian frontmatter/wikilinks, replacing personal filesystem paths with repository URLs, updating cross-references to use relative markdown links.
+
+---
+
+## 2026-02-02 — Add iteration planning SOP for cross-project coordination
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** SOP published, label and issue created
+**Issues:** #81 (closes #10 gap)
+
+### What Happened
+- Created `sops/iteration-planning.md` — full SOP for time-boxed iteration plans
+- Three contribution modes: solo iteration plan, multi-contributor plan, no plan (default)
+- Modeled after VS Code Iteration Plans with emoji status conventions
+- Updated CLAUDE.md and SOPs README to reference the new SOP
+- Created `type/iteration` label on GitHub
+- Created tracking issue #81
+
+### What Emerged
+- The gap was identified in #10 (closed as "revisit after Signal ships") but returned naturally when working across specflow-lifecycle issues #5-#8 plus upstream PRs. The blackboard needed an aggregation layer above individual issues.
+- Default is "no plan" — iteration plans are opt-in overhead. This respects the UNIX philosophy of minimal process unless complexity warrants it.
+- The three-mode design lets contributors self-select coordination overhead based on their actual needs.
+
+---
+
 ## 2026-02-01 — Register collab-bundle project (CLI skill for blackboard operations)
 
 **Author:** @mellanon (agent: Luna)

@@ -42,6 +42,7 @@ These SOPs are **sequenced** — they follow the lifecycle of a contribution fro
 | ∞ | Parallel Reviews | [Parallel Reviews](parallel-reviews.md) | "How do we get multiple perspectives?" | Inviting independent reviews on security, architecture, or governance topics |
 | ∞ | Competing Proposals | [Competing Proposals](competing-proposals.md) | "Which approach should we take?" | Multiple valid solutions exist for the same problem |
 | ∞ | Requesting Collaboration | [Requesting Collaboration](requesting-collaboration.md) | "I need help — how do I ask?" | Active contributor needs review, expertise, or a second opinion |
+| ∞ | Iteration Planning | [Iteration Planning](iteration-planning.md) | "What am I doing this week across projects?" | Working across 3+ issues/projects, or coordinating parallel contributors |
 
 ---
 

@@ -160,6 +160,7 @@ Follow the standard operating procedures in `sops/`:
 | Building features | `sops/specflow-development-pipeline.md` |
 | Releasing to upstream | `sops/specfirst-release-process.md` |
 | Registering agents | `sops/daemon-registry-protocol.md` |
+| Coordinating cross-project work | `sops/iteration-planning.md` |
 
 ---
 

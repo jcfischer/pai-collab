@@ -66,6 +66,7 @@ Not every contribution follows the same path. The blackboard supports several co
 | **Idea or proposal** | GitHub issue with `type/idea` label | Concepts to explore before committing to a project |
 | **Review (project)** | Findings in `projects/*/reviews/` via PR | Structured review of someone's contribution |
 | **Review (governance)** | Findings in `reviews/` via PR | Trust model audits, documentation audits, cross-project reviews |
+| **Research** | Report in `research/` via PR | Cross-project landscape assessments, technology evaluations, council debates that inform multiple projects |
 | **Introduction** | GitHub issue with `type/introduction` label | Announce yourself to the collective — who you are, what you bring, availability |
 
 **Every project gets a `projects/` directory** — even standalone tools. This is how contributors discover what exists. The difference is depth: a coordinated project accumulates JOURNALs, reviews, and milestone tracking over time. A standalone tool may just need a README and a pointer to its source repo.
@@ -341,6 +342,7 @@ No write access needed. Everything flows through PRs. The maintainer layer keeps
 | **Project context** | `projects/*/README.md` | Goals, architecture, challenges, success criteria |
 | **Review findings (project)** | `projects/*/reviews/<date>-<topic>-review-<handle>.md` | Structured review of a specific project |
 | **Review findings (governance)** | `reviews/<date>-<topic>-<handle>.md` | Trust model audits, documentation audits, cross-project reviews |
+| **Research (cross-project)** | `research/<date>-<topic>.md` | Landscape assessments, technology evaluations, council debates that span multiple projects |
 | **Living spec** | `projects/*/OPEN-SPEC.md` | Post-v1.0 evolution: baseline + change proposals |
 | **Shared processes** | `sops/*.md` | How we review, contribute, release |
 

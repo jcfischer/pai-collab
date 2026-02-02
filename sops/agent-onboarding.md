@@ -186,6 +186,11 @@ After completing steps 1–5, **render** (don't summarize) the following report 
     "How do I propose a competing approach?" → sops/competing-proposals.md
     "How do I prepare code for contribution?" → sops/contribution-protocol.md
 
+  Research:
+    "I want to evaluate a technology" → research/ directory via PR
+    "I have a landscape assessment" → research/ directory via PR
+    Research informs multiple projects — see research/README.md
+
   Propose ideas:
     "I have an idea for the collective" → Open issue with type/idea label
     "I built something others could use" → CONTRIBUTING.md → Types of Contributions
