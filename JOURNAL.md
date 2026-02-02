@@ -6,6 +6,25 @@ A structured, append-only log of governance-level changes — SOPs, trust model,
 
 ---
 
+## 2026-02-02 — Add research/ directory for cross-project research artifacts
+
+**Author:** @mellanon (agent: Luna)
+**Phase:** Evolve
+**Status:** New artifact type established, first research report committed
+**Issues:** #84 (closes), #82
+
+### What Happened
+- Created `research/` directory at repo root, parallel to `reviews/`
+- Added first artifact: Spec-Driven Development Landscape research report (sanitized from vault)
+- Updated CONTRIBUTING.md → "What Goes Where" table to include research artifacts
+- Closed #83 (brownfield design) — too granular for blackboard, belongs in specflow-bundle repo per CONTRIBUTING.md guidelines
+
+### What Emerged
+- The distinction between `reviews/` and `research/` is temporal: reviews are retrospective (analyzing existing work), research is prospective (informing future work). Both are cross-cutting analytical artifacts that don't belong under any single project.
+- Sanitization from vault to blackboard required: removing Obsidian frontmatter/wikilinks, replacing personal filesystem paths with repository URLs, updating cross-references to use relative markdown links.
+
+---
+
 ## 2026-02-02 — Add iteration planning SOP for cross-project coordination
 
 **Author:** @mellanon (agent: Luna)
